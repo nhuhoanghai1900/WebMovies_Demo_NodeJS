@@ -1,0 +1,44 @@
+<div class=" container-profile mx-auto">
+    <div class="row media profile-head gap-3">
+
+        <div class="col-12 col-md-5 col-lg-4 d-flex justify-content-center">
+            <div class="profile ">
+                <img type="file" src="{{user.img}}" alt="..." width="250" class="rounded-circle shadow-4 img-thumbnail">
+                <div class="avatar-overlay">
+                    <span href="#" type="button" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                        Thay đổi ảnh
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="col-12 col-md-5 col-lg-4 d-flex justify-content-center">
+            <div class="media-body">
+                <h2 class="mt-0 mb-1">{{user.fullName}}</h2>
+                <p class="medium mb-3"> <i class="fas fa-map-marker-alt mr-2"></i>{{user.email}}</p>
+                <p class="medium mb-3"> <i class="fas fa-map-marker-alt mr-2"></i>Chức vụ: {{roleLabel}}</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row media-user">
+        <h3 class="font-weight-bold mb-3 d-block">
+            <span>{{user.fullName}}</span> --- TIÊN VỰC 3D
+        </h3>
+        <h5 class="font-weight-bold">{{roleLabel}}</h5>
+        <p class="text-muted"> <i class="fas fa-image mr-1"></i>Nhập đạo: {{createdDate}}</h4>
+    </div>
+
+    <div class="row media">
+        <div class="col-12 media gap-3">
+            <h5 class="mb-0">Phim đã theo dõi</h5><a href="#" class="btn">Show all</a>
+        </div>
+        <div class="col-lg-6 mb-2 pr-lg-1"><img
+                src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                alt="" class="img-fluid rounded shadow-sm"></div>
+        <div class="col-lg-6 mb-2 pl-lg-1"><img
+                src="https://images.unsplash.com/photo-1493571716545-b559a19edd14?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80"
+                alt="" class="img-fluid rounded shadow-sm"></div>
+    </div>
+
+</div>

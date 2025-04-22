@@ -1,0 +1,91 @@
+<div class="container-customs w-50 mx-auto">
+  <div class="d-flex flex-column gap-3">
+    <h2 style="color: coral;">PHIM HOẠT HÌNH: {{movies.name}}</h2>
+    <div class="d-flex gap-3">
+      <button type="button" class="btn btn-danger btn-trash">
+        <i class="bi bi-list-columns"></i>
+        <a href="/movies/{{movies._id}}/edit/details" style="font-size: 17px;">Chi tiết tập</a>
+      </button>
+      <button type="button" class="btn btn-warning btn-trash m-0">
+        <i class="bi bi-arrow-left-square"></i>
+        <a href="/me/stored/movies" style="font-size: 17px;">Quay lại</a>
+      </button>
+    </div>
+  </div>
+
+  <form class="mt-4" method="POST" action="/movies/{{movies._id}}?_method=PUT">
+    <div class="mb-3">
+      <label for="name" class="form-label">TÊN PHIM</label>
+      <input type="text" class="form-control" value="{{movies.name}}" id="name" name="name" />
+    </div>
+
+    <div class="mb-3">
+      <label for="img" class="form-label">Hình ảnh</label>
+      <input type="text" class="form-control" value="{{movies.img}}" id="img" name="img" />
+    </div>
+
+    <div class="mb-3">
+      <label for="status" class="form-label">TRẠNG THÁI</label>
+      <select class="form-control" id="status" name="status">
+        <option value="{{movies.status}}">-- {{movies.status}} --</option>
+        <option value="Đang chiếu">Đang chiếu</option>
+        <option value="Sắp chiếu">Sắp chiếu</option>
+        <option value="Ngừng chiếu">Ngừng chiếu</option>
+        <option value="Hoàn thành">Hoàn thành</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="quality" class="form-label">CHẤT LƯỢNG</label>
+      <select class="form-control" id="quality" name="quality">
+        <option value="{{movies.quality}}">-- {{movies.quality}} --</option>
+        <option value="HD">HD</option>
+        <option value="FullHD">FullHD</option>
+        <option value="4K">4K</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="language" class="form-label">THỂ LOẠI</label>
+      <select class="form-control" id="language" name="language">
+        <option value="{{movies.language}}">-- {{movies.language}} --</option>
+        <option value="Viễn tưởng">Viễn tưởng</option>
+        <option value="Hành động">Hành động</option>
+        <option value="Tình cảm">Tình cảm</option>
+        <option value="Hài hước">Hài hước</option>
+        <option value="Chuyển sinh">Chuyển sinh</option>
+        <option value="Tu Tiên">Tu Tiên</option>
+      </select>
+    </div>
+
+    <div class="mb-3">
+      <label for="country" class="form-label">QUỐC GIA</label>
+      <select class="form-control" id="country" name="country">
+        <option value="{{movies.country}}">-- {{movies.country}} --</option>
+        <option value="Trung Quốc">Trung Quốc</option>
+        <option value="Việt Nam">Việt Nam</option>
+        <option value="Hàn Quốc">Hàn Quốc</option>
+        <option value="Mỹ">Mỹ</option>
+        <option value="Nhật Bản">Nhật Bản</option>
+      </select>
+    </div>
+
+
+    <div class="mb-3">
+      <label for="schedule" class="form-label">LỊCH CHIẾU</label>
+      <select class="form-control" id="schedule" name="schedule">
+        <option value="{{movies.schedule}}">-- {{movies.schedule}} --</option>
+        <option value="Lịch chiếu vào trưa Thứ 2 - chiếu sớm lúc 18:00 Chủ nhật">Chiếu sớm 18:00 - Chủ nhật</option>
+        <option value="Lịch chiếu vào trưa Chủ nhật - chiếu sớm lúc 18:00 Thứ bảy">Chiếu sớm 18:00 - Thứ bảy</option>
+        <option value="Lịch chiếu vào trưa Thứ bảy - chiếu sớm lúc 18:00 Thứ sáu">Chiếu sớm 18:00 - Thứ sáu</option>
+        <option value="Lịch chiếu vào trưa Thứ sáu - chiếu sớm lúc 18:00 Thứ năm">Chiếu sớm 18:00 - Thứ năm</option>
+        <option value="Lịch chiếu vào trưa Thứ năm - chiếu sớm lúc 18:00 Thứ bốn">Chiếu sớm 18:00 - Thứ bốn</option>
+        <option value="Lịch chiếu vào trưa Thứ tư - chiếu sớm lúc 18:00 Thứ ba">Chiếu sớm 18:00 - Thứ ba</option>
+        <option value="Lịch chiếu vào trưa Thứ ba - chiếu sớm lúc 18:00 Thứ hai">Chiếu sớm 18:00 - Thứ hai</option>
+      </select>
+    </div>
+
+    <button type="submit" class="btn btn-success">Hoàn thành</button>
+  </form>
+
+</div>

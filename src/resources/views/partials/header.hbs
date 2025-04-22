@@ -1,0 +1,130 @@
+<div class="container mt-3 mb-1">
+  {{!-- <nav class="navbar navbar-expand-lg"> --}}
+    <div class="row-header">
+
+      {{!-- Header logo img --}}
+      <div class="col-md-4 col-lg-3 col-xl-2 col-logo-img">
+        <a href="/"><img src="\img\ggg80R4_result.avif" alt="logo" width="210px" height="39px"
+            style="background-color: transparent"></a>
+      </div>
+
+      {{!-- Header search --}}
+      <div class="col-md-3 col-lg-5 col-xl-7 col-search">
+        <nav class="navbar-dark nav-dark-search" data-bs-theme="dark">
+          <form class="searchInputForm" role="search">
+            <input id="searchInput" type="text" class="form-control" placeholder="Tìm kiếm phim....">
+
+            <div id="suggestionBox"></div>
+            <template id="suggestion-template">
+              <div class="suggestion-item gap-5">
+                <img class="suggestion-img img-fluid" src="" alt="">
+                <div class="suggestion-des">
+                  <span class="suggestion-name"></span>
+                  <small class="suggestion-schedule text-muted fst-italic d-block"></small>
+                </div>
+              </div>
+            </template>
+
+          </form>
+        </nav>
+      </div>
+
+      {{!-- Header user avt+dropdown --}}
+      <div class="col-md-3 col-lg-2 col-xl-2 col-user">
+        <div class="col-smlapse navbar-col-smlapse" id="navbarNavDarkDropdown">
+          <ul class="navbar-nav">
+            <li class="nav-item dropdown">
+
+              {{#if user}}
+              <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="{{user.img}}" alt="avatar" class="user-avatar" loading="eager" fetchpriority="high"
+                  width="30px" height="30px">
+                <span id="user-name">{{user.fullName}}</span>
+              </button>
+
+              {{#if (eq user.role 'user')}}
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="/users/me/profile">Hồ sơ của bạn</a></li>
+                <li><a class="dropdown-item" href="#" type="button" data-bs-toggle="modal"
+                    data-bs-target="#uploadModal">Thay đổi ảnh đại diện</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a id="logout" class="dropdown-item" href="#">Đăng xuất</a></li>
+              </ul>
+              {{/if}}
+
+              {{#if (eq user.role 'admin')}}
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="/users/me/profile">Hồ sơ của bạn</a></li>
+                <li><a class="dropdown-item" href="#" type="button" data-bs-toggle="modal"
+                    data-bs-target="#uploadModal">Thay đổi ảnh đại diện</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a class="dropdown-item" href="/movies/create">Đăng phim mới</a></li>
+                <li><a class="dropdown-item" href="/me/stored/movies">Phim của tôi</a></li>
+                <div class="dropdown-divider"></div>
+                <li><a id="logout" class="dropdown-item" href="#">Đăng xuất</a></li>
+              </ul>
+              {{/if}}
+
+              {{else}}
+              <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="https://i.imgur.com/I6XfJLZ.jpeg" alt="avatar" class="user-avatar" loading="eager"
+                  fetchpriority="high" width="30px" height="30px">
+                <span id="user-name">Chào mừng bạn</span>
+              </button>
+              <ul class="dropdown-menu dropdown-menu-dark">
+                <li><a class="dropdown-item" href="/users/register">Đăng ký</a></li>
+                <li><a class="dropdown-item" href="/users/login">Đăng nhập</a></li>
+              </ul>
+              {{/if}}
+
+            </li>
+          </ul>
+        </div>
+      </div>
+
+    </div>
+    {{!--
+  </nav> --}}
+
+  <!-- Modal Upload Ảnh -->
+  <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="uploadModalLabel">Thay đổi ảnh đại diện</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Filepond Input -->
+          <form id="uploadForm">
+            <div class="mb-3">
+              <small for="imageInput">- File không vượt quá 5MB!</small>
+              <input id="imageInput" type="file" class="filepond" name="filepond" accept="image/png, image/jpeg" />
+            </div>
+            <div class="d-flex justify-content-between">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+              <button type="submit" id="uploadImage" class="btn btn-primary">Lưu thay đổi</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{{!--
+<script type="module" src="/js/partials/header.js"></script> --}}
+
+<script>
+  const searchInput = document.getElementById("searchInput")
+  let searchInputLoaded = false
+  searchInput.addEventListener('focus', () => {
+    if (searchInputLoaded) return
+    searchInputLoaded = true
+    const script = document.createElement('script')
+    script.type = 'module'
+    document.body.appendChild(script)
+  })
+</script>
+{{!-- script.src = 'src\resources\js\partials\searchHeader.js' --}}

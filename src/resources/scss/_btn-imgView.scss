@@ -1,0 +1,54 @@
+// Start ---------------------------- button hover -------------
+.btn {
+  color: #fff;
+  background: linear-gradient(to left, #b92b27, #321575);
+  background-size: 200% 100%;
+  background-position: 0% 0%;
+  transition: background-position 0.4s ease-in-out;
+}
+
+.btn:hover {
+  color: #ffffff;
+  background-position: 100% 0%;
+  cursor: pointer;
+}
+
+.btn-movie-episodeId {
+  color: #fff;
+  font-weight: 700;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: linear-gradient(to left, #434343, #000000);
+  background-size: 200% 100%;
+  background-position: 0% 0;
+  transition: background-position 0.2s ease-in-out, transform 0.2s ease,
+    box-shadow 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.btn-movie-episodeId:hover {
+  background-position: 100% 0;
+  transform: scale(1.05);
+  outline: 2px solid #7f5af0;
+  outline-offset: 2px;
+  cursor: pointer;
+}
+
+.btn-movie-episodeId.active {
+  outline: 2px solid #7f5af0;
+  outline-offset: 2px;
+  background-position: 100% 0;
+  box-shadow: 0 4px 12px rgba(127, 90, 240, 0.5);
+}
+// End ---------------------------- button hover -------------
+
+// Start ---------------------------- image_hover_effect-------------
+.img-hover-effect {
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.img-hover-effect:hover {
+  transform: scale(0.95);
+  filter: brightness(1.2);
+}
+// End ---------------------------- image_hover_effect-------------

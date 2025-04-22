@@ -1,0 +1,110 @@
+// Start ----------------- scroll container ----------------------------------
+.scroll-container {
+  max-width: 1270px;
+  width: 100%;
+  height: auto;
+  margin: 0 auto;
+  padding: 20px 12px;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: start;
+  align-items: center;
+  overflow: auto;
+  scroll-behavior: smooth;
+  gap: 16px;
+  user-select: none; /* Chặn bôi đen text */
+  -webkit-user-drag: none; /* Chặn kéo hình ảnh trên Safari */
+  -webkit-user-select: none; /* Chặn luôn trên Safari */
+  cursor: grab;
+}
+
+.scroll-container a,
+.scroll-container img {
+  -webkit-user-drag: none;
+  cursor: grab;
+}
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+.scroll-container.dragging {
+  cursor: grabbing; /* Chỉ khi kéo */
+}
+// End ----------------- scroll container ----------------------------------
+
+// Start ----------------- container card  ----------------------------------
+.card {
+  flex: 0 0 auto;
+  width: clamp(150px, 22vw, 240px);
+  min-width: 190px; /* NGĂN thu quá bé */
+  height: 350px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 15px;
+  background-color: #000000;
+}
+
+.card .card-img {
+  flex: 3;
+  width: 100%;
+  height: auto;
+}
+
+.card-img .card-img-top {
+  width: 190px;
+  height: 270px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 15px;
+  object-fit: cover;
+}
+
+.card .card-body {
+  flex: 2;
+  width: 190px;
+  height: auto;
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0;
+  gap: 2px;
+  overflow: hidden;
+  background-color: #000000;
+}
+
+.card-body .card-body-number {
+  flex: 1;
+  margin-right: 10px;
+  line-height: 1;
+  font-weight: 800;
+  font-size: 2.2rem;
+  font-style: italic;
+  color: transparent;
+  background-clip: text;
+  background: linear-gradient(39deg, #fecf59, #fff1cc);
+  -webkit-background-clip: text;
+}
+
+.card-body .card-body-info {
+  flex: 4;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  color: white;
+}
+
+.card-body-info .card-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  margin: 0;
+  max-width: 150px;
+}
+
+.card-body-info .card-title-details {
+  margin: 0;
+  font-size: 12px;
+  font-style: italic;
+}
+// End ----------------- container Card----------------------------------

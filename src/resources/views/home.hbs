@@ -1,0 +1,86 @@
+<div class="scroll-container ">
+    {{#each moviesFull}}
+    <div class="card">
+        <div class="card-img">
+            <a href="/movies/{{this.slug}}/details">
+                <img src="{{this.img}}" class="card-img-top img-hover-effect" alt="{{this.name}}" loading="eager"
+                    fetchpriority="high">
+            </a>
+        </div>
+        <div class="card-body">
+            <div class="card-body-number">{{sum @index 1}}</div>
+            <div class="card-body-info">
+                <h5 class="card-title fs-6">{{this.name}}</h5>
+                <p class="card-title-details">Xem ngay</p>
+            </div>
+        </div>
+    </div>
+    {{/each}}
+</div>
+
+<div class="container-row-section">
+    <div class="row">
+        <div class="col row-col-weekly">
+            <a href="#">Mới</a>
+            <p>Cập nhật</p>
+        </div>
+        <div class="col row-col-weekly">
+            <a href="#">Mon</a>
+            <p>Thứ hai</p>
+        </div>
+        <div class="col row-col-weekly">
+            <a href="#">Tue</a>
+            <p>Thứ ba</p>
+        </div>
+        <div class="col row-col-weekly">
+            <a href="#">Wed</a>
+            <p>Thứ tư</p>
+        </div>
+        <div class="col row-col-weekly">
+            <a href="#">Thu</a>
+            <p>Thứ năm</p>
+        </div>
+        <div class="col row-col-weekly">
+            <a href="#">Fri</a>
+            <p>Thứ sáu</p>
+        </div>
+        <div class="col row-col-weekly">
+            <a href="#">Sat</a>
+            <p>Thứ bảy</p>
+        </div>
+        <div class="col row-col-weekly">
+            <a href="#">Sun</a>
+            <p>Chủ nhật</p>
+        </div>
+    </div>
+
+    <div class="row">
+        {{#each movies}}
+        <div class="col row-col-list">
+            <div class="card">
+                <a href="/movies/{{this.slug}}/details">
+                    <img src="{{this.img}}" class="card-img-top img-hover-effect" alt="{{this.name}}" loading="lazy"
+                        fetchpriority="high">
+                </a>
+                <div class="dark-bottom-gradient"></div>
+                <h5 class="fs-6 z-2 p-2 text-overlay position-absolute bottom-0 start-0 text-white text-truncate w-100">
+                    {{this.name}}
+                </h5>
+            </div>
+        </div>
+        {{/each}}
+        <p class="mt-2">Trang {{currentPage}} / {{totalPages}}</p>
+    </div>
+
+    <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-1">
+        <ul class="pagination">
+            <li class="page-item"><a class="page-link" href="/?page=1">1</a></li>
+            <li class="page-item"><a class="page-link" href="/?page=2">2</a></li>
+            <li class="page-item"><a class="page-link" href="/?page=3">3</a></li>
+        </ul>
+    </nav>
+
+</div>
+
+{{!--
+<script defer type="module" src="/js/home.js"></script> --}}

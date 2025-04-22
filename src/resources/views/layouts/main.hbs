@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tiên Vực 3D</title>
+    <style>
+        body,
+        html {
+            background: #000;
+            background-image: url("/img/050a9123e4a63adb3a0a.webp");
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    </style>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.css">
+
+    <!-- CSS tùy chỉnh -->
+    <link rel="stylesheet" href="{{cssFile}}">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/img/favicon.ico">
+
+    <!-- Toastify CSS (hiển thị thông báo) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css" media="print"
+        onload="this.media='all'" />
+
+    <!-- FilePond CSS -->
+    <link href="https://unpkg.com/filepond/dist/filepond.min.css" rel="stylesheet" media="print"
+        onload="this.media='all'" />
+
+    <!-- FilePond Plugin: Xem trước hình ảnh -->
+    <link rel="stylesheet"
+        href="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css" media="print"
+        onload="this.media='all'" />
+
+</head>
+
+<body>
+    {{> header}}
+    {{> header-nav}}
+    {{{body}}}
+    {{> footer}}
+
+    <script type="module" src="{{jsFile}}"></script>
+
+    <!-- Toastify JS -->
+    <script defer src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <!-- FilePond JS -->
+    <script src="https://unpkg.com/filepond/dist/filepond.min.js"></script>
+    <!-- FilePond Plugin: Xem trước hình ảnh -->
+    <script src="https://unpkg.com/filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.js"></script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

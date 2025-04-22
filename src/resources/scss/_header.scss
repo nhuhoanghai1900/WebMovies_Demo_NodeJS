@@ -1,0 +1,100 @@
+// Start ----------------- Search suggestions dropdown -------------
+// Search bar
+.searchInputForm {
+  position: relative;
+}
+// Search bar
+.form-control:focus {
+  border: 1px solid #f8c146;
+  box-shadow: 0 0 0 0.2rem rgba(248, 193, 70, 0.25);
+  outline: none;
+}
+
+//Search suggestions main
+#suggestionBox {
+  display: block;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  background-color: #000;
+  max-height: 460px;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  display: none;
+  z-index: 10;
+}
+
+//Search suggestions item
+.suggestion-item {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  padding: 10px;
+  margin: 4px;
+  background-color: #0047476b;
+  border-radius: 10px;
+}
+//Search suggestions item:hover
+.suggestion-item {
+  background: linear-gradient(to left, #b92b27, #321575);
+  background-size: 200% 100%;
+  background-position: 0% 0;
+  transition: background-position 0.4s ease-in-out;
+}
+
+.suggestion-item:hover {
+  background-position: 100% 0;
+  cursor: pointer;
+}
+//Search suggestions img
+.suggestion-img {
+  width: 60px;
+  height: auto;
+  border-radius: 6px;
+  object-fit: cover;
+}
+// End ---------------------------- Search suggestions dropdown -------------
+
+// Start ---------------------------- avt -------------
+.user-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-right: 5px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+// End ---------------------------- avt -------------
+
+.row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+
+@media (max-width: 767px) {
+  .row-header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .col-search {
+    display: none;
+  }
+}
+@media (max-width: 500px) {
+  .row-header {
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: end;
+  }
+
+  .col-search,
+  .col-logo-img {
+    display: none;
+  }
+}

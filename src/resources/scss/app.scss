@@ -1,0 +1,175 @@
+@use "resetView";
+@use "mainView";
+@use "header";
+@use "btn-imgView";
+@use "headerNavView";
+@use "cardMovieView";
+
+// Start ----------------- container weekly----------------------------------
+.container-row-section {
+  position: relative;
+  max-width: 1150px;
+  height: auto;
+  margin: 0 auto;
+}
+
+.row-col-weekly {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(51, 51, 51);
+  margin: 2px;
+  padding: 4px;
+  border-radius: 4px;
+}
+
+.row-col-weekly > a {
+  text-decoration: none;
+  font-weight: 900;
+  color: #fff;
+  -webkit-user-drag: none;
+}
+
+.row-col-weekly > p {
+  margin: 0;
+  font-size: 12px;
+  font-style: italic;
+}
+
+.row-col-weekly:hover {
+  background-color: rgba(0, 78, 52, 0.822);
+  cursor: pointer;
+  user-select: none;
+}
+
+.row-col-list {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 4px;
+  padding: 4px;
+  border-radius: 4px;
+}
+// End ----------------- container weekly----------------------------------
+
+.dark-bottom-gradient {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 25%;
+  background: linear-gradient(to top, rgba(0, 0, 0, 1), transparent);
+  z-index: 1;
+}
+
+.container-movie-details {
+  background-color: #212529;
+}
+
+.container-customs {
+  background-color: #181f26;
+  margin-top: 10px;
+  padding: 30px 100px 20px 100px;
+}
+
+.table-tbody-movie-details th {
+  font-weight: 900;
+}
+.table-tbody-movie-details td {
+  font-style: italic;
+}
+
+.table-tbody-movie-details .td-name {
+  color: #fecf59;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+.row-list-movie .col-list-movie {
+  background-color: #00594a67;
+  border-radius: 10px;
+  margin-bottom: 10px;
+}
+
+.movie-details-title--1 {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  background-color: #181f26;
+}
+
+.movie-details-title--2 {
+  display: flex;
+  align-items: center;
+  font-style: italic;
+  background-color: #181f26;
+}
+
+// Start -------------------- profile
+.container-profile {
+  width: calc(100% - 15%);
+  background-color: white;
+  color: #000;
+  min-height: 100vh;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+.profile:hover .avatar-overlay {
+  opacity: 1;
+}
+
+.profile {
+  position: relative;
+  max-width: 250px;
+}
+
+.avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.profile-head {
+  background: linear-gradient(to right, #008461, #904e95);
+  color: #fff;
+}
+
+.media {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.media-user {
+  background-color: #cacaca56;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+// End -------------------- profile
+
+// Start ----------------- Login + Register ----------------------------------
+.col-login-register {
+  background-color: #08253f;
+  border-radius: 30px;
+  border: 2px solid #008eab;
+  box-shadow: 10px 10px 10px rgba(255, 255, 255, 0.1);
+}
+// End ----------------- Login + Register ----------------------------------

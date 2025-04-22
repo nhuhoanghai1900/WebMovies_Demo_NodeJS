@@ -1,0 +1,38 @@
+<div class="container mt-4 d-flex flex-d flex-column justify-contents-center">
+    <div class="row mx-auto">
+        <div class="col-md-12 ">
+            <iframe width="900px" height="600px" src="{{episode.videoUrl}}" title="YouTube video player"
+                aria-hidden="true" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        </div>
+    </div>
+    <div class="row mx-start mt-3 ">
+        <div class="col-md-12 movie-details-title--1 gap-3 p-3">
+            <i class="bi bi-film"></i>
+            <h4 class="m-0">[{{movies.language}}] - {{movies.name}} -- Tập {{episode.epNumber}}</h4>
+        </div>
+    </div>
+    <div class="row mx-start mt-3 ">
+        <div class="col-md-12 movie-details-title--2 gap-3 p-3">
+            <i class="bi bi-calendar-check"></i>
+            <h5 class="m-0">{{movies.schedule}}</h5>
+        </div>
+    </div>
+    <!-- Row cho danh sách nút tập phim -->
+    <div class="row row-list-movie d-flex m-3">
+        <h5>Danh sách tập phim:</h5>
+        <div class="col-md-12 p-4 col-list-movie">
+            <div class="mx-2 d-flex flex-wrap" role="group" aria-label="Tập phim">
+                {{#each movies.episodes}}
+                <a href="/movies/{{../movies.slug}}/watch/{{epNumber}}" class="btn btn-movie-episodeId m-1"
+                    style="width: 100px; text-align: center;" data-episode-id="{{epNumber}}">
+                    Tập {{epNumber}}
+                </a>
+                {{/each}}
+            </div>
+        </div>
+    </div>
+</div>
+
+{{!-- <script type="module" src="/js/movies/btn-active-episodeId.js"></script> --}}

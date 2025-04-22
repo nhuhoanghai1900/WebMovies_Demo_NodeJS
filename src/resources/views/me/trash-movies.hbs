@@ -1,0 +1,80 @@
+<div class="container mt-4 w-75">
+  <div class="d-flex gap-3 align-items-center">
+    <a href="/me/stored/movies" class="btn btn-success">
+      <i class="bi bi-arrow-left-square"></i>
+      Quay lại
+    </a>
+
+    <h2>PHIM ĐÃ XÓA TRONG BXH</h2>
+  </div>
+
+  <table class="table table-dark table-striped table-bordered text-center align-middle mt-4">
+    <thead class="align-middle">
+      <tr>
+        <th scope="col">STT</th>
+        <th scope="col">TÊN PHIM</th>
+        <th scope="col"></th>
+        <th scope="col">TRẠNG THÁI</th>
+        <th scope="col">CHẤT LƯỢNG</th>
+        <th scope="col">THỂ LOẠI</th>
+        <th scope="col">QUỐC GIA</th>
+        <th scope="col">LỊCH CHIẾU</th>
+        <th scope="col">THỜI GIAN XÓA</th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each moviesMe}}
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this.name}}</td>
+        <td><img class="img-thumbnail w-50" src="{{this.img}}" alt=""></td>
+        <td>{{this.status}}</td>
+        <td>{{this.quality}}</td>
+        <td>{{this.language}}</td>
+        <td>{{this.country}}</td>
+        <td>{{this.schedule}}</td>
+        <td>{{this.deletedAt}}</td>
+        <td>
+          <a href="" class="btn btn-success btn-restore mb-1" data-id="{{this._id}}">Khôi phục</a>
+          <a href="" class="btn btn-danger" data-id="{{this._id}}" data-bs-toggle="modal"
+            data-bs-target="#delete-movies-modal">Xóa vĩnh viễn</a>
+        </td>
+      </tr>
+      {{else}}
+      <tr>
+        <td colspan="10">Thùng rác trống
+          <a href="/me/stored/movies">Quay trở về</a>
+        </td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>
+
+{{! khi nút xóa ở trên kích hoạt --> hiển thị confirm xác nhận }}
+<div id="delete-movies-modal" class="modal" tabindex="-1"> {{! confirm id: delete-movies-modal }}
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">DỪNG LẠI!!!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Hành động này không thể khôi phục!!! Bạn có chắc muốn xóa vĩnh viễn không?</p>
+      </div>
+      <div class="modal-footer">
+        {{! button confirm id: btn__delete-movies-modal }}
+        <button id="btn__delete-movies-modal" type="button" class="btn btn-success">Xóa luôn
+        </button>
+        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Hủy</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! tạo form name}}
+<form name="delete-movies-form" method="POST"></form>
+<form name="restore-movies-form" method="POST"></form>
+
+{{!-- <script src="/js/me/trash-movies.js"></script> --}}
