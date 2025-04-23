@@ -3,10 +3,10 @@ import Movies from "../models/Movies.js"
 class SiteController {
   async home(req, res, next) {
     try {
-      const moviesFull = await Movies.find({}).lean()
+      const moviesFull = await Movies.find({}).lean().limit(10)
 
       const page = parseInt(req.query.page) || 1
-      const limit = 10
+      const limit = 15
       const skip = (page - 1) * limit
       // Lấy danh sách khoá học có phân trang
       const movies = await Movies.find().skip(skip).limit(limit).lean()

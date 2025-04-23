@@ -101,8 +101,9 @@ class MoviesController {
   // Cập nhật thông tin phim
   async update(req, res, next) {
     try {
-      const { id } = req.params
-      await Movies.updateOne({ _id: id }, req.body)
+      const updateData = { ...req.body };
+      if (req.file) updateData.img = `/img/${req.file.filename}`
+      await Movies.updateOne({ _id: req.params.id }, updateData)
       res.redirect("/me/stored/movies")
     } catch (error) {
       next(error)

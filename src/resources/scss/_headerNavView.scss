@@ -2,11 +2,10 @@
 
 .container__header-nav {
   width: 100%;
-  // max-width: 1100px;
   margin: 0 auto;
   margin-bottom: 8px;
-  border-radius: 20px;
-  background-color: rgba(119, 119, 119, 0.55);
+  border-radius: 10px;
+  background: linear-gradient(to left, #b92b27, #321575);
 }
 
 .header__container {

@@ -2,11 +2,12 @@
   <div class="d-flex gap-3">
     <button type="button" class="btn btn-danger btn-trash">
       <i class="bi bi-list-columns"></i>
-      <a href="/movies/create/{{movies._id}}/episode" style="font-size: 17px;">Thêm tập mới</a>
+      <a class="text-decoration-none text-[17px] text-white" href="/movies/create/{{movies._id}}/episode">Thêm tập
+        mới</a>
     </button>
     <button type="button" class="btn btn-warning btn-trash m-0">
       <i class="bi bi-arrow-left-square"></i>
-      <a href="/movies/{{movies._id}}/edit" style="font-size: 17px;">Quay lại</a>
+      <a class="text-decoration-none text-[17px] text-white" href="/movies/{{movies._id}}/edit">Quay lại</a>
     </button>
   </div>
 
@@ -73,4 +74,5 @@
 
 <form name="delete-episode-form" method="POST"></form>
 
-{{!-- <script src="/js/movies/edit-movie-details.js"></script> --}}
+{{!--
+<script src="/js/movies/edit-movie-details.js"></script> --}}

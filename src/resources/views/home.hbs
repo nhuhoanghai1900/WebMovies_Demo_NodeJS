@@ -19,7 +19,9 @@
 </div>
 
 <div class="container-row-section">
-    <div class="row">
+
+    {{!-- weekly --}}
+    <div class="row-weekly">
         <div class="col row-col-weekly">
             <a href="#">Mới</a>
             <p>Cập nhật</p>
@@ -54,23 +56,43 @@
         </div>
     </div>
 
-    <div class="row">
+    {{!-- weekly dropdown--}}
+    <div class="section-dropdown">
+        <div class="btn section-dropdown-item">
+            <a href="#">Mới cập nhật</a>
+        </div>
+        <div class="btn section-dropdown-item">
+            <a href="#">Lịch chiếu</a>
+            <div class="dropdown-content">
+                <div class="col"><a href="#">Mon</a></div>
+                <div class="col"><a href="#">Tue</a></div>
+                <div class="col"><a href="#">Wed</a></div>
+                <div class="col"><a href="#">Thu</a></div>
+                <div class="col"><a href="#">Fri</a></div>
+                <div class="col"><a href="#">Sat</a></div>
+                <div class="col"><a href="#">Sun</a></div>
+            </div>
+        </div>
+    </div>
+
+    {{!-- list movies limit 15--}}
+    <div class="row-list">
         {{#each movies}}
-        <div class="col row-col-list">
-            <div class="card">
+        <div class="row-col-list">
+            <div class="list-card">
                 <a href="/movies/{{this.slug}}/details">
                     <img src="{{this.img}}" class="card-img-top img-hover-effect" alt="{{this.name}}" loading="lazy"
                         fetchpriority="high">
+                    <div class="dark-bottom-gradient"></div>
+                    <p class="list-card-name">
+                        {{this.name}}
+                    </p>
                 </a>
-                <div class="dark-bottom-gradient"></div>
-                <h5 class="fs-6 z-2 p-2 text-overlay position-absolute bottom-0 start-0 text-white text-truncate w-100">
-                    {{this.name}}
-                </h5>
             </div>
         </div>
         {{/each}}
-        <p class="mt-2">Trang {{currentPage}} / {{totalPages}}</p>
     </div>
+    <p class="m-1">Trang {{currentPage}} / {{totalPages}}</p>
 
     <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-1">
         <ul class="pagination">

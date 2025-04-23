@@ -1,0 +1,91 @@
+// Start ----------------- Movie-Details ----------------------------------
+.container-movie-details {
+  width: 100%;
+  margin: 0 auto 8px;
+  overflow: auto;
+  background: linear-gradient(to left, #b92b27, #321575);
+}
+
+.movie-details {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  align-items: stretch;
+  padding: 20px;
+  gap: 20px;
+}
+
+.movie-details-img img {
+  width: 200px;
+  height: 100%;
+  object-fit: cover;
+}
+
+.movie-details-des {
+  width: 600px;
+}
+
+.movie-details-des table {
+  width: 100%;
+  height: 100%;
+}
+
+.table-tbody-movie-details th {
+  font-weight: 900;
+}
+.table-tbody-movie-details td {
+  font-style: italic;
+}
+
+.table-tbody-movie-details .td-name {
+  color: #fecf59;
+  font-size: 17px;
+  font-weight: 900;
+}
+
+@media (max-width: 1023px) {
+  .movie-details {
+    justify-content: start;
+  }
+}
+// End ----------------- Movie-Details ----------------------------------
+
+// Start ----------------- Movie-Details episodeID----------------------------------
+.row-list-movie {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.col-list-movie {
+  width: 100%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  justify-content: center;
+  padding: 15px;
+  gap: 5px;
+  border-radius: 10px;
+  background-color: rgba(119, 119, 119, 0.55);
+}
+
+// .movie-details-title--1 {
+//   display: flex;
+//   align-items: center;
+//   font-weight: 900;
+//   background-color: #181f26;
+// }
+
+// .movie-details-title--2 {
+//   display: flex;
+//   align-items: center;
+//   font-style: italic;
+//   background-color: #181f26;
+// }
+// End ----------------- Movie-Details episodeID ----------------------------------
+
+.container-customs {
+  //   background: linear-gradient(to left, #b92b27, #321575);
+  margin-top: 10px;
+  padding: 30px 100px 20px 100px;
+}

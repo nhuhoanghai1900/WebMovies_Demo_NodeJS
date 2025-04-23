@@ -1,0 +1,92 @@
+// Start -------------------- profile
+.container-profile {
+  width: calc(100% - 15%);
+  background-color: white;
+  color: #000;
+  min-height: 100vh;
+  padding: 0;
+  overflow: hidden;
+  border-radius: 0.5rem;
+}
+
+.row-profile {
+  background: linear-gradient(to right, #008461, #904e95);
+  color: #fff;
+}
+
+.col-profile {
+  display: flex;
+  justify-content: start;
+}
+
+.profile:hover .avatar-overlay {
+  opacity: 1;
+}
+
+.profile {
+  position: relative;
+  max-width: 250px;
+  width: 100%;
+  height: 250px;
+}
+
+.profile img {
+  position: absolute;
+  max-width: 250px;
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.avatar-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+.media {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.media-user {
+  background-color: #cacaca56;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+.media-favorite {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 900;
+}
+@media (max-width: 425px) {
+  .col-profile {
+    justify-content: center;
+  }
+  .media-user > * {
+    font-size: 16px;
+  }
+  .media-favorite {
+    font-size: 16px;
+  }
+}
+// End -------------------- profile

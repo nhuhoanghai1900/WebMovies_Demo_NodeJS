@@ -1,59 +1,59 @@
-<div class="container mx-auto">
-    <div class="container-movie-details mt-5 mb-3">
-        <div class="row m-3 pt-3">
-            <h6>Trang chủ | Thông tin</h6>
+<div class="container container-movie-details">
+
+    <div class="row m-2">
+        <h6>Trang chủ | Thông tin</h6>
+    </div>
+
+    <div class="movie-details">
+        <div class="movie-details-img">
+            <img src="{{movies.img}}" class="card-img-top img-thumbnail">
         </div>
-        <div class="row d-flex justify-content-center align-items-stretch g-0 pb-3">
-            <div class="col-lg-3 d-flex">
-                <div style="width: 12rem">
-                    <img src="{{movies.img}}" class="card-img-top">
-                </div>
-            </div>
-            <div class="col-lg-8 d-flex">
-                <table class="table text-white table-dark bg-transparent table-borderless align-middle m-0">
-                    <tbody class="table-tbody-movie-details">
-                        <tr>
-                            <th>Tên phim:</th>
-                            <td class="td-name">{{movies.name}}</td>
-                        </tr>
-                        <tr>
-                            <th>Trạng thái:</th>
-                            <td>{{movies.status}}</td>
-                        </tr>
-                        <tr>
-                            <th>Chất lượng:</th>
-                            <td>{{movies.quality}}</td>
-                        </tr>
-                        <tr>
-                            <th>Ngôn ngữ:</th>
-                            <td>{{movies.language}}</td>
-                        </tr>
-                        <tr>
-                            <th>Quốc gia:</th>
-                            <td>{{movies.country}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+
+        <div class="movie-details-des">
+            <table class="table text-white table-dark bg-transparent align-middle m-0">
+                <tbody class="table-tbody-movie-details">
+                    <tr>
+                        <th>Tên phim:</th>
+                        <td class="td-name">{{movies.name}}</td>
+                    </tr>
+                    <tr>
+                        <th>Trạng thái:</th>
+                        <td>{{movies.status}}</td>
+                    </tr>
+                    <tr>
+                        <th>Chất lượng:</th>
+                        <td>{{movies.quality}}</td>
+                    </tr>
+                    <tr>
+                        <th>Ngôn ngữ:</th>
+                        <td>{{movies.language}}</td>
+                    </tr>
+                    <tr>
+                        <th>Quốc gia:</th>
+                        <td>{{movies.country}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
-        <p>{{episodes}}</p>
-        <!-- Row cho danh sách nút tập phim -->
-        <div class="row row-list-movie d-flex m-3">
-            <h5>Xem phim:</h5>
-            <div class="col-md-12 p-4 col-list-movie">
-                <div class="mx-2 d-flex flex-wrap" role="group" aria-label="Tập phim">
-                    {{#each movies.episodes}}
-                    <a href="/movies/{{../movies.slug}}/watch/{{epNumber}}"
-                        class="btn btn-movie-episodeId m-1 checkTokenMovies" style="width: 100px; text-align: center;"
-                        data-episode-id="{{epNumber}}">
-                        Tập {{epNumber}}
-                    </a>
-                    {{/each}}
-                </div>
-            </div>
+    </div>
+
+    <p>{{episodes}}</p>
+
+    <!-- Row cho danh sách nút tập phim -->
+    <div class="row-list-movie">
+        <h5>Xem phim:</h5>
+        <div class="col-list-movie">
+            {{#each movies.episodes}}
+            <a href="/movies/{{../movies.slug}}/watch/{{epNumber}}" class="btn btn-movie-episodeId m-1 checkTokenMovies"
+                style="width: 100px; text-align: center;" data-episode-id="{{epNumber}}">
+                Tập {{epNumber}}
+            </a>
+            {{/each}}
         </div>
     </div>
 </div>
 
-{{!-- <script type="module" src="/js/movies/movie-watch-episodeId.js"></script>
+
+{{!--
+<script type="module" src="/js/movies/movie-watch-episodeId.js"></script>
 <script type="module" src="/js/movies/btn-active-episodeId.js"></script> --}}

@@ -1,3 +1,20 @@
+.row-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin: 0 auto;
+  padding: 10px 20px;
+}
+// Start ----------------- col-logo-img -------------
+
+.row-header .col-logo-img img {
+  width: 210px;
+  height: 39px;
+  background-color: transparent;
+}
+// End ----------------- col-logo-img -------------
+
 // Start ----------------- Search suggestions dropdown -------------
 // Search bar
 .searchInputForm {
@@ -33,19 +50,27 @@
   margin: 4px;
   background-color: #0047476b;
   border-radius: 10px;
+  overflow: auto;
 }
 //Search suggestions item:hover
 .suggestion-item {
-  background: linear-gradient(to left, #b92b27, #321575);
+  background-color: transparent;
+  background-image: linear-gradient(to left, #b92b27, #321575);
   background-size: 200% 100%;
   background-position: 0% 0;
-  transition: background-position 0.4s ease-in-out;
+  transition: background-position 0.3s ease-in-out;
 }
 
 .suggestion-item:hover {
   background-position: 100% 0;
   cursor: pointer;
 }
+.suggestion-item.active {
+  background-image: none;
+  background: black;
+  font-weight: 900;
+}
+
 //Search suggestions img
 .suggestion-img {
   width: 60px;
@@ -55,8 +80,8 @@
 }
 // End ---------------------------- Search suggestions dropdown -------------
 
-// Start ---------------------------- avt -------------
-.user-avatar {
+// Start ---------------------------- .col-user and .col-dropdown-------------
+.col-user .user-avatar {
   width: 30px;
   height: 30px;
   border-radius: 50%;
@@ -64,37 +89,59 @@
   object-fit: cover;
   flex-shrink: 0;
 }
-// End ---------------------------- avt -------------
 
-.row-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  width: 100%;
-  margin: 0 auto;
-  padding: 10px 20px;
+.col-user .dropdown-menu-custom {
+  background: #000;
 }
 
-@media (max-width: 767px) {
+.dropdown-menu-custom .dropdown-item {
+  color: white;
+  font-weight: 500;
+}
+.dropdown-item:hover {
+  background: linear-gradient(to left, #b92b27, #321575);
+}
+// End ---------------------------- .col-user and .col-dropdown-------------
+
+@media (max-width: 1023px) {
   .row-header {
     display: flex;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 10px;
+  }
+  .col-search {
+    flex: 1 0 100%;
+    order: 3;
+  }
+}
+
+@media (max-width: 470px) {
+  .row-header {
+    display: flex;
+    flex-wrap: wrap;
+    padding-inline: 1px;
+  }
+  .col-logo-img {
+    flex: 1 0 100%;
+    display: flex;
+    justify-content: center;
+    order: 1;
   }
 
   .col-search {
-    display: none;
+    flex: 1 0 78%;
+    order: 2;
   }
-}
-@media (max-width: 500px) {
-  .row-header {
+
+  .col-user {
+    flex: 1 0 1%;
+    order: 3;
     display: flex;
-    flex-wrap: nowrap;
     justify-content: end;
   }
 
-  .col-search,
-  .col-logo-img {
+  #user-name {
     display: none;
   }
 }
