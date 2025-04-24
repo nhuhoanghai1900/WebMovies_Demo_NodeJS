@@ -1,3 +1,4 @@
+import { log } from "console"
 import Movies from "../models/Movies.js"
 import slugify from "slugify"
 
@@ -101,7 +102,15 @@ class MoviesController {
   // Cập nhật thông tin phim
   async update(req, res, next) {
     try {
-      const updateData = { ...req.body };
+      // kiểm tra dữ liệu đầu vào req.body
+      const allowedFields = ["name", "status", "quality", "language", 'country', 'schedule'];
+      const updateData = {};
+      for (const checkFields of allowedFields) {
+        if (req.body[checkFields]) {
+          updateData[checkFields] = req.body[checkFields]
+        }
+      }
+      console.log(updateData);
       if (req.file) updateData.img = `/img/${req.file.filename}`
       await Movies.updateOne({ _id: req.params.id }, updateData)
       res.redirect("/me/stored/movies")

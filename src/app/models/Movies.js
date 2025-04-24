@@ -23,7 +23,7 @@ const Movies = new Schema(
     schedule: { type: String, required: true },
   },
   {
-    timestamps: true,
+    timestamps: true, strict: true
   }
 )
 Movies.plugin(mongooseDelete, { overrideMethods: "all", deletedAt: true })
