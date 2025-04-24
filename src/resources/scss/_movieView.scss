@@ -3,6 +3,7 @@
   width: 100%;
   margin: 0 auto 8px;
   overflow: auto;
+  padding: 0;
   background: linear-gradient(to left, #b92b27, #321575);
 }
 
@@ -50,7 +51,40 @@
 }
 // End ----------------- Movie-Details ----------------------------------
 
-// Start ----------------- Movie-Details episodeID----------------------------------
+// Start ----------------- Movie-Details -> watch episodes ----------------------------------
+.row-movie-yt {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  gap: 20px;
+  background: #181f26;
+}
+.row-movie-yt iframe {
+  aspect-ratio: 16/9;
+  width: 100%;
+  margin: 0 auto;
+  background: #181f26;
+}
+
+.movie-details-title--1 {
+  display: flex;
+  align-items: center;
+  font-weight: 900;
+  background-color: #181f26;
+}
+
+.movie-details-title--2 {
+  display: flex;
+  align-items: center;
+  font-style: italic;
+  background-color: #181f26;
+}
+// End ----------------- Movie-Details -> watch episodes ----------------------------------
+
+// Start ----------------- Movie-Details --> list episodes----------------------------------
 .row-list-movie {
   width: 100%;
   margin: 0 auto;
@@ -68,21 +102,7 @@
   border-radius: 10px;
   background-color: rgba(119, 119, 119, 0.55);
 }
-
-// .movie-details-title--1 {
-//   display: flex;
-//   align-items: center;
-//   font-weight: 900;
-//   background-color: #181f26;
-// }
-
-// .movie-details-title--2 {
-//   display: flex;
-//   align-items: center;
-//   font-style: italic;
-//   background-color: #181f26;
-// }
-// End ----------------- Movie-Details episodeID ----------------------------------
+// End ----------------- Movie-Details --> list episodes ----------------------------------
 
 .container-customs {
   //   background: linear-gradient(to left, #b92b27, #321575);
