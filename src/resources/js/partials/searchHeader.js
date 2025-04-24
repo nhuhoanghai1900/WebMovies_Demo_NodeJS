@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const scheduleMovies = clone.querySelector(".suggestion-schedule")
 
       imgMovies.src = movie.img
-      nameMovies.textContent = movie.name + " - " + movie.status
+      nameMovies.textContent = movie.name
       scheduleMovies.textContent = movie.schedule
 
       clone.querySelector(".suggestion-item").addEventListener("click", () => {
@@ -85,4 +85,10 @@ document.addEventListener('DOMContentLoaded', () => {
     })
     suggestionBox.style.display = "block"
   }
+
+  document.addEventListener('click', (e) => {
+    if (!suggestionBox.contains(e.target))
+      suggestionBox.style.display = "none"
+  })
 })
+

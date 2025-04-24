@@ -1,6 +1,6 @@
 // Start ----------------- scroll container ----------------------------------
 .scroll-container {
-  max-width: 1270px;
+  max-width: 1320px;
   width: 100%;
   height: auto;
   margin: 0 auto;
@@ -11,7 +11,7 @@
   align-items: center;
   overflow: auto;
   scroll-behavior: smooth;
-  gap: 16px;
+  gap: 8px;
   user-select: none; /* Chặn bôi đen text */
   -webkit-user-drag: none; /* Chặn kéo hình ảnh trên Safari */
   -webkit-user-select: none; /* Chặn luôn trên Safari */
@@ -33,29 +33,28 @@
 
 // Start ----------------- container card  ----------------------------------
 .card {
-  flex: 0 0 auto;
-  width: clamp(150px, 22vw, 240px);
-  min-width: 190px; /* NGĂN thu quá bé */
+  flex: 1 0 auto; // 1 cho giãn - 0 cấm co lại
+  width: clamp(200px, 22vw, 210px);
   height: 350px;
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  overflow: hidden; // cấm thẻ con tràn ra
   border-radius: 15px;
   background-color: #000000;
 }
 
-.card .card-img {
-  flex: 3;
-  width: 100%;
-  height: auto;
-}
+// .card .card-img {
+//   flex: 3;
+//   width: 100%;
+//   height: auto;
+// }
 
 .card-img .card-img-top {
-  width: 190px;
-  height: 270px;
+  width: clamp(190px, 22vw, 205px);
+  height: 280px;
   display: block;
   margin: 0 auto;
-  border-radius: 15px;
+  border-radius: 10px;
   object-fit: cover;
 }
 

@@ -8,10 +8,9 @@ document.addEventListener('DOMContentLoaded', () => {
       try {
         const res = await fetch("/users/logout", { method: "POST" })
         if (!res.ok) throw new Error("Logout thất bại")
-
         showToast("Bạn đang đăng xuất!")
         setTimeout(() => {
-          window.location.reload()
+          window.location.href = '/'
         }, 1500)
       } catch (err) {
         showToastDanger("Đăng xuất thất bại, thử lại sau")
@@ -72,4 +71,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     }
   })
+
+  const dropdownItemWeekly = document.querySelector('.item-weekly')
+  const dropdownContent = document.querySelector('.dropdown-content')
+  if (dropdownItemWeekly)
+    dropdownItemWeekly.addEventListener('click', (e) => {
+      dropdownContent.classList.toggle('show')
+    })
 })
