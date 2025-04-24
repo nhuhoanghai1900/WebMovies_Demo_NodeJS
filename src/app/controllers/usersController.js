@@ -1,6 +1,7 @@
 import Users from "../models/Users.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
+import { check, validationResult } from "express-validator"
 
 import fs from "fs"
 import path from "path"
@@ -42,8 +43,10 @@ class UsersController {
 
   async handleLoginForm(req, res, next) {
     try {
-      const { email, password } = req.body
-      const user = await Users.findOne({ email })
+      const email = String(req.body.email).trim(); // Ép kiểu string + loại bỏ khoảng trắng
+      const password = req.body.password;
+
+      const user = await Users.findOne({ email: { $eq: email } })
       const isPassword = await bcrypt.compare(password, user.password)
       if (!user)
         return res
