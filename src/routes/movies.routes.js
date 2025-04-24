@@ -3,6 +3,7 @@ import moviesController from "../app/controllers/moviesController.js"; // 2. Imp
 import checkToken from "../app/middleware/checkToken.js"; // 3. Import middleware kiểm tra token
 import checkRole from "../app/middleware/checkRole.js"; // 4. Import middleware kiểm tra quyền
 import handleUpload from "../app/middleware/uploadMiddleware.js"; // 5. Import middleware xử lý upload file
+import rateLimit from "../app/middleware/rateLimitMiddleware.js"; // hạn chế hành động nhạy cảm restore, delete
 
 const route = express.Router(); // 6. Tạo một instance của Router
 
@@ -26,8 +27,8 @@ route.get("/:id/edit/details", moviesController.editMovieDetails); // 10.2. Hi�
 // 11. Định nghĩa các route liên quan đến chỉnh sửa và xóa movie
 route.get("/:id/edit", checkToken, moviesController.edit); // 11.1. Hiển thị form chỉnh sửa movie
 route.put("/:id", checkToken, handleUpload("img"), checkRole(["admin"]), moviesController.update); // 11.2. Cập nhật dữ liệu movie
-route.delete("/:id", checkToken, checkRole(["admin"]), moviesController.destroy); // 11.3. Xóa mềm movie
-route.delete("/:id/force", checkToken, checkRole(["admin"]), moviesController.forceDestroy); // 11.4. Xóa vĩnh viễn movie
-route.patch("/:id/restore", checkToken, checkRole(["admin"]), moviesController.restore); // 11.5. Khôi phục movie đã xóa mềm
+route.delete("/:id", checkToken, checkRole(["admin"]), rateLimit, moviesController.destroy); // 11.3. Xóa mềm movie
+route.delete("/:id/force", checkToken, checkRole(["admin"]), rateLimit, moviesController.forceDestroy); // 11.4. Xóa vĩnh viễn movie
+route.patch("/:id/restore", checkToken, checkRole(["admin"]), rateLimit, moviesController.restore); // 11.5. Khôi phục movie đã xóa mềm
 
 export default route; // 12. Export router để sử dụng trong ứng dụng
