@@ -45,9 +45,9 @@ npm start
 
 - Node.js
 - Express.js
-- MongoDB + Mongoose
 - Express-Handlebars
-- SCSS (biên dịch sang CSS)
+- MongoDB + Mongoose
+- Webpack (biên dịch SCSS + tạo CSS, nén JS + CSS, contenthash cache)
 - Nodemon (dev tool)
 
 ---
@@ -63,4 +63,3 @@ npm start
 ---
 
 "watch": "sass --watch src/resources/scss/app.scss src/public/css/app.css",
-
