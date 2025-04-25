@@ -8,17 +8,17 @@ import rateLimit from "../app/middleware/rateLimitMiddleware.js";
 
 const route = express.Router()
 
-route.get("/register", usersController.showRegisterForm)
-route.post("/register", registerValidate, usersController.handleRegisterForm)
+route.get("/register", rateLimit, usersController.showRegisterForm)
+route.post("/register", registerValidate, rateLimit, usersController.handleRegisterForm)
 
-route.get("/login", usersController.showLoginForm)
-route.post("/login", rateLimit, loginValidate, usersController.handleLoginForm)
+route.get("/login", rateLimit, usersController.showLoginForm)
+route.post("/login", loginValidate, rateLimit, usersController.handleLoginForm)
 
 route.post('/logout', usersController.logout)
 
 route.post('/upload-avatar', checkToken, handleUpload("uploads"), rateLimit, usersController.uploadAvatar)
 
-route.get("/me/profile", checkToken, usersController.meProfile)
-route.get("/me/favorite", checkToken, usersController.mefavorite)
+route.get("/me/profile", checkToken, rateLimit, usersController.meProfile)
+route.get("/me/favorite", checkToken, rateLimit, usersController.mefavorite)
 
 export default route

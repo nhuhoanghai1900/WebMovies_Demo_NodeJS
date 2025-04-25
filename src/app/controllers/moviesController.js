@@ -110,7 +110,6 @@ class MoviesController {
           updateData[checkFields] = req.body[checkFields]
         }
       }
-      console.log(updateData);
       if (req.file) updateData.img = `/img/${req.file.filename}`
       await Movies.updateOne({ _id: req.params.id }, updateData)
       res.redirect("/me/stored/movies")

@@ -5,7 +5,7 @@ import checkToken from '../app/middleware/checkToken.js'
 import checkRole from "../app/middleware/checkRole.js"
 import rateLimit from "../app/middleware/rateLimitMiddleware.js";
 
-route.get("/stored/movies", checkToken, checkRole(['admin']), meController.storedMovies)
-route.get("/trash/movies", checkToken, checkRole(['admin']), meController.trashMovies)
+route.get("/stored/movies", checkToken, checkRole(['admin']), rateLimit, meController.storedMovies)
+route.get("/trash/movies", checkToken, checkRole(['admin']), rateLimit, meController.trashMovies)
 
 export default route

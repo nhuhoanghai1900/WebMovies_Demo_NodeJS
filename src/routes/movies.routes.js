@@ -15,9 +15,9 @@ route.post("/store", checkToken, checkRole(["admin"]), rateLimit, handleUpload("
 route.post("/handle-form-actions", checkToken, checkRole(["admin"]), rateLimit, moviesController.handleFormActions); // 8.1. Xử lý các hành động từ form
 
 // 9. Định nghĩa các route liên quan đến episode
-route.get("/create/:id/episode", checkToken, checkRole(["admin"]), moviesController.createEpisode); // 9.1. Hiển thị form tạo mới episode
+route.get("/create/:id/episode", checkToken, checkRole(["admin"]), rateLimit, moviesController.createEpisode); // 9.1. Hiển thị form tạo mới episode
 route.post("/:id/storeEpisode", checkToken, checkRole(["admin"]), rateLimit, moviesController.storeEpisode); // 9.2. Lưu dữ liệu episode vào db
-route.get("/:slug/watch/:epNumber", checkToken, moviesController.watchEpisode); // 9.3. Xem một episode cụ thể
+route.get("/:slug/watch/:epNumber", checkToken, rateLimit, moviesController.watchEpisode); // 9.3. Xem một episode cụ thể
 route.delete("/:movieId/episodes/:episodeId", checkToken, checkRole(["admin"]), rateLimit, moviesController.destroyEpisode); // 9.4. Xóa một episode cụ thể
 
 // 10. Định nghĩa các route liên quan đến chi tiết movie
@@ -25,7 +25,7 @@ route.get("/:slug/details", moviesController.movieDetails); // 10.1. Hiển th�
 route.get("/:id/edit/details", moviesController.editMovieDetails); // 10.2. Hiển thị form chỉnh sửa chi tiết movie
 
 // 11. Định nghĩa các route liên quan đến chỉnh sửa và xóa movie
-route.get("/:id/edit", checkToken, moviesController.edit); // 11.1. Hiển thị form chỉnh sửa movie
+route.get("/:id/edit", checkToken, rateLimit, moviesController.edit); // 11.1. Hiển thị form chỉnh sửa movie
 route.put("/:id", checkToken, handleUpload("img"), checkRole(["admin"]), rateLimit, moviesController.update); // 11.2. Cập nhật dữ liệu movie
 route.delete("/:id", checkToken, checkRole(["admin"]), rateLimit, moviesController.destroy); // 11.3. Xóa mềm movie
 route.delete("/:id/force", checkToken, checkRole(["admin"]), rateLimit, moviesController.forceDestroy); // 11.4. Xóa vĩnh viễn movie
