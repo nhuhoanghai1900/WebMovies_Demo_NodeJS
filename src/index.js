@@ -11,7 +11,7 @@ import compression from "compression" // dùng GZIP để nén tất cả file H
 import cookieParser from "cookie-parser" // 1.7
 import checkTokenIfExists from "./app/middleware/checkTokenIfExists.js"
 import assetMiddleware from './app/middleware/assetMiddleware.js' // gắn css + js vào hbs (do có contenthash)
-import rateLimit from "express-rate-limit";
+import rateLimitMiddleware from './app/middleware/rateLimitMiddleware.js' // gắn css + js vào hbs (do có contenthash)
 
 // 2. Thiết lập __dirname
 const __dirname = path.dirname(fileURLToPath(import.meta.url)) // 2.1
@@ -22,7 +22,7 @@ const port = 3000 // 3.2
 
 // 4. Cài đặt Middleware
 app.use(assetMiddleware)
-app.use(rateLimit)
+app.use(rateLimitMiddleware)
 app.use(express.urlencoded({ extended: true })) // 4.1 // Xử lý dữ liệu từ form gửi lên
 app.use(express.json()) // 4.2 // Xử lý dữ liệu JSON
 app.use(compression())
