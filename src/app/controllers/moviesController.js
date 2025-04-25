@@ -1,6 +1,7 @@
 import { log } from "console"
 import Movies from "../models/Movies.js"
 import slugify from "slugify"
+import validator from "validator"
 
 class MoviesController {
   // Xem một tập phim cụ thể của phim
@@ -81,7 +82,7 @@ class MoviesController {
     try {
       const { id } = req.params
       const movies = await Movies.findById(id)
-      res.render('movies/edit.hbs', { movies: movies.toObject() })
+      res.render("movies/edit.hbs", { movies: movies.toObject() })
     } catch (error) {
       next(error)
     }
@@ -103,17 +104,46 @@ class MoviesController {
   async update(req, res, next) {
     try {
       // kiểm tra dữ liệu đầu vào req.body
-      const allowedFields = ["name", "status", "quality", "language", 'country', 'schedule'];
-      const updateData = {};
+      // const allowedFields = ["name", "status", "quality", "language", 'country', 'schedule']
+      // const updateData = {}
+      // for (const checkFields of allowedFields) {
+      //   if (req.body[checkFields]) {
+      //     const sanitizedValue = validator.escape(req.body[checkFields].toString())
+      //     updateData[checkFields] = sanitizedValue
+      //   }
+      // }
+      // console.log(req.body)
+      // console.log(updateData)
+
+      const allowedFields = [
+        "name",
+        "status",
+        "quality",
+        "language",
+        "country",
+        "schedule",
+        "episodes",
+      ]
+      const updateData = {}
       for (const checkFields of allowedFields) {
         if (req.body[checkFields]) {
-          updateData[checkFields] = req.body[checkFields]
+          if (!checkFields === "episodes" && Array.isArray(req.body[checkFields])) {
+            updateData[checkFields] = validator.escape(
+              req.body[checkFields].toString()
+            )
+          } else {
+            updateData[checkFields] = req.body[checkFields]
+          }
         }
       }
+      console.log(req.body)
+      console.log(updateData)
+
       if (req.file) updateData.img = `/img/${req.file.filename}`
       await Movies.updateOne({ _id: req.params.id }, updateData)
       res.redirect("/me/stored/movies")
     } catch (error) {
+      console.log(error)
       next(error)
     }
   }
@@ -184,7 +214,6 @@ class MoviesController {
       next(error)
     }
   }
-
 }
 export default new MoviesController()
 

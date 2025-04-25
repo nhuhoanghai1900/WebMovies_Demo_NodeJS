@@ -1,4 +1,4 @@
-<div class="container-customs w-50 mx-auto">
+<div class="container-customs w-75 mx-auto">
   <div class="d-flex gap-3">
     <button type="button" class="btn btn-danger btn-trash">
       <i class="bi bi-list-columns"></i>
@@ -11,9 +11,9 @@
     </button>
   </div>
 
-  <form class="mt-4 " method="POST" action="/movies/{{movies._id}}?_method=PUT">
+  <form class="mt-4 form-edit-episodes" method="POST" action="/movies/{{movies._id}}?_method=PUT">
     <h4 style="color: coral; font-style: italic">{{movies.name}}</h4>
-    <table class="table table-dark table-striped text-center table-bordered align-middle">
+    <table class="table-dark table-striped text-center table-bordered align-middle">
       <thead>
         <tr>
           <th style="width: 15%">Số tập</th>

@@ -64,9 +64,8 @@
 }
 .row-movie-yt iframe {
   aspect-ratio: 16/9;
-  width: 100%;
+  width: 65%;
   margin: 0 auto;
-  background: #181f26;
 }
 
 .movie-details-title--1 {
@@ -106,16 +105,24 @@
 }
 // End ----------------- Movie-Details --> list episodes ----------------------------------
 
-.container-customs {
-  //   background: linear-gradient(to left, #b92b27, #321575);
-  margin-top: 10px;
-  padding: 30px 100px 20px 100px;
-}
-
 .active-favorite {
   background: #b92b27;
   border-radius: 5px;
   padding: 5px;
   margin: 2px;
   transition: color 0.3s ease;
+}
+
+.container-customs {
+  margin-top: 10px;
+  padding: 30px 100px 20px 100px;
+}
+
+.form-edit-episodes {
+  max-height: 700px;
+  overflow-y: auto;
+}
+
+.form-edit-episodes::-webkit-scrollbar {
+  width: 0; /* Ẩn thanh cuộn dọc */
 }
