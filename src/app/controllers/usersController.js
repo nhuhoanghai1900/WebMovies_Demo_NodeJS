@@ -1,4 +1,5 @@
 import Users from "../models/Users.js"
+import Movies from "../models/Movies.js"
 import bcrypt from "bcrypt"
 import jwt from "jsonwebtoken"
 import { check, validationResult } from "express-validator"
@@ -117,15 +118,27 @@ class UsersController {
   }
 
   async meProfile(req, res) {
-    const user = await Users.findById(req.user._id).select("-_id fullName email img role createdAt")
+    //get user data
+    const user = await Users.findById(req.user._id)
+      .select("-_id fullName email img role favorites createdAt")
+      .lean()
     const roleLabel = user.role === "admin" ? "Bang chủ Admin" : "Thành viên"
     const createdDate = new Date(user.createdAt).toLocaleDateString("vi-VN")
+
+    //get user data
+    const movie = await Movies.find({ _id: { $in: user.favorites } }).select('_id slug name img').lean()
+
     res.render("users/profile.hbs", {
-      user: user.toObject(),
+      user,
+      movie,
       roleLabel,
       createdDate,
     })
   }
 
+  async mefavorite(req, res) {
+    const user = await Users.findById(req.user._id).select("-_id favorites ")
+    res.json(user)
+  }
 }
 export default new UsersController()

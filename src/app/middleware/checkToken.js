@@ -6,7 +6,7 @@ function checkToken(req, res, next) {
     if (!token) {
       return res
         .status(401)
-        .json({ message: "Bạn cần đăng nhập để xem phim (!Token)" })
+        .json({ message: "Bạn cần đăng nhập (!token)" })
     }
 
     // Kiểm tra token hợp lệ
@@ -15,7 +15,6 @@ function checkToken(req, res, next) {
         return res.status(403).json({ message: "Token không hợp lệ" })
       }
       req.user = userPayload
-
       next()
     })
   } catch (error) {

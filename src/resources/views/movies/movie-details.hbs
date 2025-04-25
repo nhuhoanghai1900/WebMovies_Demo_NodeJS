@@ -32,15 +32,24 @@
                         <th>Quốc gia:</th>
                         <td>{{movies.country}}</td>
                     </tr>
+                    <tr>
+                        <td colspan="2">
+                            <a type="button" href="/favorites-movies/{{movies._id}}/favorites"
+                                class="text-white text-decoration-none fs-5 fw-bold lh-base favorite-item btn"
+                                data-id="{{movies._id}}">
+                                <i data-id="{{movies._id}}" class="bi bi-heart favorite-active-item"></i>
+                                <span class="text-active-fav">Theo Dõi</span>
+                            </a>
+                        </td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
 
-    <p>{{episodes}}</p>
 
     <!-- Row cho danh sách nút tập phim -->
-    <div class="row-list-movie">
+    <div class=" row-list-movie">
         <h5>Xem phim:</h5>
         <div class="col-list-movie">
             {{#each movies.episodes}}

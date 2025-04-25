@@ -1,4 +1,7 @@
 import { showToast, showToastDanger } from "../toastify/toastifyHeader.js"
+import FilePond from 'filepond';
+import FilePondPluginImagePreview from 'filepond-plugin-image-preview';
+
 document.addEventListener('DOMContentLoaded', () => {
   // handle logout
   const isLogout = document.getElementById("logout")

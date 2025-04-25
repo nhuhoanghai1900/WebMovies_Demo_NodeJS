@@ -2,6 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     var id, deleteForm = document.forms['delete-soft-movies-form']
     const deleteMoviesModal = document.getElementById('delete-movies-modal-01')
     const btndeleteMoviesModal = document.getElementById('btn__delete-movies-modal')
+    const checkBox = document.querySelector('#checkBox-all')
+    const checkItems = document.querySelectorAll('input[name="Ids[]"]')
+    const checkItem = document.querySelector('input[name="Ids[]"]')
+    const btnDisabled = document.querySelector('#btn-disabled')
+    const containerForm = document.forms['container-form']
+
+    if (containerForm) {
+        document.querySelector('.col-logo-img').style.display = 'none'
+        document.querySelector('.col-search').style.display = 'none'
+        document.querySelector('.container__header-nav').style.display = 'none'
+    }
 
     if (deleteMoviesModal) {
         //lắng nghe sự kiện show confirm
@@ -16,12 +27,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
     }
-
-    const checkBox = document.querySelector('#checkBox-all')
-    const checkItems = document.querySelectorAll('input[name="Ids[]"]')
-    const checkItem = document.querySelector('input[name="Ids[]"]')
-    const btnDisabled = document.querySelector('#btn-disabled')
-    const containerForm = document.forms['container-form']
 
     if (checkBox) {
         checkBox.addEventListener('change', () => {
@@ -57,5 +62,6 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         })
     }
-
 })
+
+

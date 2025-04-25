@@ -1,14 +1,14 @@
 export const showToast = (message) => {
     Toastify({
         text: message,
-        duration: 1500,
+        duration: 3000,
         gravity: "top",
         position: "right",
         style: {
             background: "#55a14e",
             color: "#fff",
             borderRadius: "8px",
-            padding: "12px 16px"
+            padding: "16px 20px"
         },
         close: false
     }).showToast()
@@ -17,7 +17,7 @@ export const showToast = (message) => {
 export const showToastDanger = (message) => {
     Toastify({
         text: message,
-        duration: 1500,
+        duration: 3000,
         gravity: "top",
         position: "right",
         style: {

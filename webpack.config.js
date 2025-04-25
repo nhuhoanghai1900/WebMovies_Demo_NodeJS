@@ -8,16 +8,19 @@ import { fileURLToPath } from 'url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 export default {
+    //đường dẫn nhập
     entry: {
         app: "./src/resources/js/main.js",
     },
 
+    //đường dẫn xuất
     output: {
         filename: "js/[name].[contenthash].js",
         path: path.resolve(__dirname, "src/public/"),
         module: true,
     },
 
+    // hiểu Module
     experiments: {
         outputModule: true,
     },
@@ -32,13 +35,23 @@ export default {
                     "sass-loader",               // biên dịch SCSS → CSS
                 ],
             },
+            {
+                test: /\.css$/, // Xử lý file CSS (kể cả từ node_modules)
+                type: 'javascript/auto', // Giúp webpack hiểu đây là file CSS thuần
+                use: [
+                    MiniCssExtractPlugin.loader,
+                    'css-loader',
+                ],
+            },
         ],
     },
 
     plugins: [
+        // xuất css by MiniCssExtractPlugin
         new MiniCssExtractPlugin({
             filename: "css/app.[contenthash].css", // tên file CSS đầu ra
         }),
+        // ngăn ko xóa các thư mục cha sau + con
         new CleanWebpackPlugin({
             cleanOnceBeforeBuildPatterns: [
                 '**/*',
@@ -53,8 +66,8 @@ export default {
     optimization: {
         minimize: true,
         minimizer: [
-            new CssMinimizerPlugin(), // nén css
-            new TerserPlugin(), // nén js
+            new CssMinimizerPlugin({ parallel: true }), // nén css
+            new TerserPlugin({ parallel: true }), // nén js
         ],
     },
 
@@ -63,7 +76,10 @@ export default {
             "console": false,
         },
     },
-
+    cache: {
+        type: 'filesystem',
+    },
     stats: 'minimal',
     mode: "production", // "production or development"
+    // devtool: false,
 }
