@@ -15,12 +15,19 @@
   margin: 0;
 }
 /////////////////////////////////////////////////
+.row-filter-select-hidden {
+  display: contents;
+}
+.btn-filter-select-hidden {
+  display: none;
+}
+
 .row-filter-select {
   width: 100%;
+  margin: 0 auto;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(151px, 1fr));
-  justify-items: center;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(153px, 1fr));
+  place-items: center;
   padding: inherit;
   gap: 10px;
   border-radius: 20px;
@@ -29,6 +36,7 @@
 
 .row-filter-select > a {
   width: 100%;
+  max-width: 153px;
   max-height: 34px;
   display: flex;
   flex-direction: column;
@@ -102,15 +110,35 @@
   border: 1px solid #ff3e6f;
   cursor: pointer;
 }
+////////////////////////////////////
 
 ///////////////////////////////////
+@media (max-width: 1439px) {
+  .row-filter-select {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  }
+}
+
 @media (max-width: 1023px) {
   .row-filter-list-movies {
     grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+  .row-filter-select {
+    grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
   }
 }
 @media (max-width: 767px) {
   .row-filter-list-movies {
     grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+  .row-filter-select {
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 4px;
+  }
+  .row-filter-select > a {
+    margin: 4px 0;
+  }
+  .row-filter-select.bg-dark.px-3 {
+    display: none;
   }
 }

@@ -80,7 +80,7 @@
 }
 // End ---------------------------- Search suggestions dropdown -------------
 
-// Start ---------------------------- .col-user and .col-dropdown-------------
+// Start ---------------------------- .col-user -------------
 .col-user .user-avatar {
   width: 30px;
   height: 30px;
@@ -89,20 +89,7 @@
   object-fit: cover;
   flex-shrink: 0;
 }
-
-.dropdown-menu-custom {
-  background: #000;
-}
-
-.dropdown-menu-custom .dropdown-item {
-  color: white;
-  font-weight: 500;
-  background: black;
-}
-.dropdown-item:hover {
-  background: linear-gradient(to left, #b92b27, #321575);
-}
-// End ---------------------------- .col-user and .col-dropdown-------------
+// End ---------------------------- .col-user-------------
 
 @media (max-width: 1023px) {
   .row-header {

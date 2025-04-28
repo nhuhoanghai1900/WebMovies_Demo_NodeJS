@@ -19,7 +19,12 @@ async function connect() {
       console.error("MongoDB URI is not defined!")
       return
     }
-    await mongoose.connect(mongoUri)
+    await mongoose.connect(mongoUri, {
+      maxPoolSize: 100, // Tối đa 50 connection mở cùng lúc
+      minPoolSize: 50, // Duy trì ít nhất 5 connection mở sẵn (optional)
+      serverSelectionTimeoutMS: 5000, // Nếu không tìm thấy server trong 5s thì báo lỗi
+      socketTimeoutMS: 45000, // Nếu socket mất kết nối sau 45s thì timeout
+    })
     console.log("Connect success MongoDB!!!")
   } catch (error) {
     console.log("Connect failure MongoDB!!!")

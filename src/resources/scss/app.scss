@@ -7,7 +7,8 @@
 @use "movies/stored-movies";
 @use "utils/btn-imgView";
 @use "utils/filterView";
-@use "utils/cardMovieView.scss";
+@use "utils/cardMovieView";
+@use "utils/dropdownView";
 
 // Start ----------------- Login + Register ----------------------------------
 .col-login-register {

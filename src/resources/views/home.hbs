@@ -20,7 +20,7 @@
 
 <div class="container-row-section">
     {{!-- weekly --}}
-    <div class="row-filter-select">
+    <div class="row-filter-select bg-dark px-3">
         <a href="/?selectedDay=Thứ Hai">Thứ hai </a>
         <a href="/?selectedDay=Thứ Ba">Thứ ba </a>
         <a href="/?selectedDay=Thứ Tư">Thứ tư </a>
@@ -29,6 +29,23 @@
         <a href="/?selectedDay=Thứ Bảy">Thứ bảy </a>
         <a href="/?selectedDay=Chủ nhật">Chủ nhật </a>
     </div>
+
+    <div class="dropdown-center">
+        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <span class="icon">&#9776; Lịch chiếu</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-custom">
+            <li><a class="dropdown-item fs-6" href="/?selectedDay=Thứ Hai">Thứ Hai</a></li>
+            <li><a class="dropdown-item fs-6" href="/?selectedDay=Thứ Ba">Thứ Ba</a></li>
+            <li><a class="dropdown-item fs-6" href="/?selectedDay=Thứ Tư">Thứ Tư</a></li>
+            <li><a class="dropdown-item fs-6" href="/?selectedDay=Thứ Năm">Thứ Năm</a></li>
+            <li><a class="dropdown-item fs-6" href="/?selectedDay=Thứ Sáu">Thứ Sáu</a></li>
+            <li><a class="dropdown-item fs-6" href="/?selectedDay=Thứ Bảy">Thứ Bảy</a></li>
+            <li><a class="dropdown-item fs-6" href="/?selectedDay=Chủ nhật">Chủ nhật</a></li>
+        </ul>
+    </div>
+
+    {{!-- <a class="btn btn-filter-select-hidden" href="/filter/schedule">Lịch chiếu phim</a> --}}
 
     {{!-- list movies limit 15--}}
     <div class="row-list">
@@ -60,5 +77,13 @@
 
 </div>
 
-{{!--
-<script defer type="module" src="/js/home.js"></script> --}}
+<footer class="container-footer text-center bg-dark text-white py-4 mt-auto">
+    <a class="text-white text-decoration-none" href="/">
+        <p class="mb-1">© Copyright ® 2025 Tiên Vực 3D.</p>
+    </a>
+    <ul class="list-inline">
+        <li class="list-inline-item"><a href="/" class="text-white">Trang chủ</a></li>
+        <li class="list-inline-item"><a href="#" class="text-white">Liên hệ</a></li>
+        <li class="list-inline-item"><a href="#" class="text-white">Về chúng tôi</a></li>
+    </ul>
+</footer>

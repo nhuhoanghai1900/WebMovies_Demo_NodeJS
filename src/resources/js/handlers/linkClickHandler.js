@@ -79,6 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
           route = showAll
             ? (route = `/filter/category/?language=${language}&showAll=${showAll}`)
             : (route = `/filter/category/?language=${language}`)
+        } else if (link.href.includes("/")) {
+          route = `/?selectedDay=${selectedDay}`
         }
 
         try {
@@ -102,6 +104,11 @@ document.addEventListener("DOMContentLoaded", () => {
               listSelect.innerHTML
             document.querySelector(".row-filter-list-movies").innerHTML =
               listMovies.innerHTML
+          }
+          const listMoviesHome = doc.querySelector(".row-list")
+          if (listMoviesHome) {
+            document.querySelector(".row-list").innerHTML =
+              listMoviesHome.innerHTML
           }
         } catch (error) {
           console.error("Lỗi fetch dữ liệu:", error)
