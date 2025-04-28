@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "dev": " concurrently \"npm run start:dev\" \"npm run watch:scss\" \"npm run serve\"  ",
-    "start:dev": "nodemon src/index.js",
+    "start:dev": "node src/index.js",
     "watch:scss": "webpack --watch --mode production",
     "build:prod": "webpack --mode production"
   },
@@ -33,7 +33,6 @@
     "mongoose-delete": "^1.0.2",
     "morgan": "^1.10.0",
     "multer": "^1.4.5-lts.2",
-    "nodemon": "^3.1.9",
     "slugify": "^1.6.6",
     "validator": "^13.15.0"
   },
