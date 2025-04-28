@@ -1,5 +1,5 @@
-<div class="scroll-container ">
-    {{#each moviesFull}}
+<div class="scroll-container">
+    {{#each moviesTop}}
     <div class="card">
         <div class="card-img">
             <a href="/movies/{{this.slug}}/details">
@@ -19,61 +19,17 @@
 </div>
 
 <div class="container-row-section">
-
     {{!-- weekly --}}
-    <div class="row-weekly">
-        <div class="col row-col-weekly">
-            <a href="#">Mới</a>
-            <p>Cập nhật</p>
-        </div>
-        <div class="col row-col-weekly">
-            <a href="#">Mon</a>
-            <p>Thứ hai</p>
-        </div>
-        <div class="col row-col-weekly">
-            <a href="#">Tue</a>
-            <p>Thứ ba</p>
-        </div>
-        <div class="col row-col-weekly">
-            <a href="#">Wed</a>
-            <p>Thứ tư</p>
-        </div>
-        <div class="col row-col-weekly">
-            <a href="#">Thu</a>
-            <p>Thứ năm</p>
-        </div>
-        <div class="col row-col-weekly">
-            <a href="#">Fri</a>
-            <p>Thứ sáu</p>
-        </div>
-        <div class="col row-col-weekly">
-            <a href="#">Sat</a>
-            <p>Thứ bảy</p>
-        </div>
-        <div class="col row-col-weekly">
-            <a href="#">Sun</a>
-            <p>Chủ nhật</p>
-        </div>
+    <div class="row-filter-select">
+        <a href="/?selectedDay=Thứ Hai">Thứ hai </a>
+        <a href="/?selectedDay=Thứ Ba">Thứ ba </a>
+        <a href="/?selectedDay=Thứ Tư">Thứ tư </a>
+        <a href="/?selectedDay=Thứ Năm">Thứ năm </a>
+        <a href="/?selectedDay=Thứ Sáu">Thứ sáu </a>
+        <a href="/?selectedDay=Thứ Bảy">Thứ bảy </a>
+        <a href="/?selectedDay=Chủ nhật">Chủ nhật </a>
     </div>
 
-    {{!-- weekly dropdown--}}
-    <div class="section-dropdown">
-        <div class="btn section-dropdown-item item-update">
-            <a href="#">Mới cập nhật</a>
-        </div>
-        <div class="btn section-dropdown-item item-weekly">
-            <a href="#">Lịch chiếu</a>
-            <div class="dropdown-content">
-                <div class="col btn-assets"><a href="#">Thứ 2</a></div>
-                <div class="col btn-assets"><a href="#">Thứ 3</a></div>
-                <div class="col btn-assets"><a href="#">Thứ 4</a></div>
-                <div class="col btn-assets"><a href="#">Thứ 5</a></div>
-                <div class="col btn-assets"><a href="#">Thứ 6</a></div>
-                <div class="col btn-assets"><a href="#">Thứ 7</a></div>
-            </div>
-        </div>
-    </div>
-    
     {{!-- list movies limit 15--}}
     <div class="row-list">
         {{#each movies}}
@@ -91,13 +47,14 @@
         </div>
         {{/each}}
     </div>
+
     <p class="m-1">Trang {{currentPage}} / {{totalPages}}</p>
 
     <nav aria-label="Page navigation example" class=" d-flex justify-content-center mt-1">
         <ul class="pagination">
-            <li class="page-item"><a class="page-link" href="/?page=1">1</a></li>
-            <li class="page-item"><a class="page-link" href="/?page=2">2</a></li>
-            <li class="page-item"><a class="page-link" href="/?page=3">3</a></li>
+            {{#each totalPagesCount}}
+            <li class="page-item"><a class="page-link" href="/?page={{this}}">{{this}}</a></li>
+            {{/each}}
         </ul>
     </nav>
 

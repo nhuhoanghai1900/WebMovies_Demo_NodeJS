@@ -19,3 +19,4 @@ import './users/login.js'// 9.
 import './users/register.js'// 10.
 import './users/checkValidate.js'// 11.
 import './toastify/toastifyHeader.js'// 12.
+import './handlers/linkClickHandler.js'// 12.

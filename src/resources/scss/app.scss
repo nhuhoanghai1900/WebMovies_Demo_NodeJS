@@ -1,13 +1,13 @@
-@use "resetView";
-@use "mainView";
-@use "header";
-@use "btn-imgView";
-@use "headerNavView";
-@use "cardMovieView";
-@use "proFileView";
-@use "_rowWeeklyView.scss";
-@use "_movieView.scss";
-@use "_stored-movies.scss";
+@use "layouts/mainView";
+@use "partials/header";
+@use "partials/headerNavView";
+@use "profile/proFileView";
+@use "layouts/rowWeeklyView";
+@use "movies/movieView";
+@use "movies/stored-movies";
+@use "utils/btn-imgView";
+@use "utils/filterView";
+@use "utils/cardMovieView.scss";
 
 // Start ----------------- Login + Register ----------------------------------
 .col-login-register {

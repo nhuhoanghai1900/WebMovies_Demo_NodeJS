@@ -90,13 +90,14 @@
   flex-shrink: 0;
 }
 
-.col-user .dropdown-menu-custom {
+.dropdown-menu-custom {
   background: #000;
 }
 
 .dropdown-menu-custom .dropdown-item {
   color: white;
   font-weight: 500;
+  background: black;
 }
 .dropdown-item:hover {
   background: linear-gradient(to left, #b92b27, #321575);

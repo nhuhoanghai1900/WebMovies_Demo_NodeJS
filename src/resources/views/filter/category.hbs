@@ -1,0 +1,38 @@
+<div class="container container-filter">
+    <div class="col-filter-title bg-dark ">
+        <h3><i class="bi bi-film"></i> THỂ LOẠI TIÊN VỰC 3D</h3>
+    </div>
+
+    <div class="row-filter-select bg-dark">
+        <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <span id="user-name">Thể loại: {{selectedLanguage}}</span>
+        </button>
+        <ul class="dropdown-menu dropdown-menu-custom bg-dark">
+            {{#each category}}
+            <li class="li-toggle-dropdown"><a class="dropdown-item"
+                    href="/filter/category/?language={{this}}">{{this}}</a>
+            </li>
+            {{/each}}
+        </ul>
+
+        {{#if showAll}}
+        <a href="/filter/category/?language={{selectedLanguage}}&showAll=false" class="btn">Thu gọn</a>
+        {{else}}
+        <a href="/filter/category/?language={{selectedLanguage}}&showAll=true">Hiện tất cả</a>
+        {{/if}}
+    </div>
+
+    <div class="row-filter-list-movies bg-dark">
+        {{#each movies}}
+        <a class="text-white text-decoration-none" href="/movies/{{this.slug}}/details">
+            <div class="col-filter-movie">
+                <img src="{{this.img}}" alt="">
+                <div>
+                    <p class="name-filter-movie">{{this.name}}</p>
+                    <small class="category-filter-movie"><i class="bi bi-badge-3d-fill"></i> {{this.language}}</small>
+                </div>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+</div>

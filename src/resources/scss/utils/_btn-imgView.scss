@@ -3,16 +3,15 @@
   color: #fff;
   background: linear-gradient(to left, #b92b27, #321575);
   background-size: 200% 100%;
-  background-position: 0% 0%;
-  transition: background-position 0.4s ease-in-out;
+  transition: all 0.4s ease-in-out;
 }
 
 .btn:hover {
-  color: #ffffff;
   background-position: 100% 0%;
+  color: #ffffff;
   cursor: pointer;
 }
-
+/////////////////////////////////////////////////////////////////
 .btn-assets {
   color: #fff;
   font-weight: 500;
@@ -49,6 +48,8 @@
 }
 // End ---------------------------- button hover -------------
 
+
+//////////////////////////////////////////////////////////////////////////
 // Start ---------------------------- image_hover_effect-------------
 .img-hover-effect {
   transition: transform 0.3s ease, filter 0.3s ease;

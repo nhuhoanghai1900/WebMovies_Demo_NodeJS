@@ -1,93 +1,98 @@
 <div class="container mt-3 mb-1">
-  {{!-- <nav class="navbar navbar-expand-lg"> --}}
-    <div class="row-header">
+  <div class="row-header">
 
-      {{!-- Header logo img --}}
-      <div class="col-md-4 col-lg-3 col-xl-2 col-logo-img">
-        <a href="/"><img src="\img\ggg80R4_result.avif" alt="logo"></a>
-      </div>
-
-      {{!-- Header search --}}
-      <div class="col-md-3 col-lg-6 col-xl-7 col-search">
-        <nav class="navbar-dark nav-dark-search" data-bs-theme="dark">
-          <form class="searchInputForm" role="search">
-            <input id="searchInput" type="text" class="form-control" placeholder="Tìm kiếm phim....">
-            <div id="suggestionBox"></div>
-            <template id="suggestion-template">
-              <div class="suggestion-item gap-5">
-                <img class="suggestion-img img-fluid" src="" alt="">
-                <div class="suggestion-des">
-                  <span class="suggestion-name"></span>
-                  <small class="suggestion-schedule text-muted fst-italic d-block"></small>
-                </div>
-              </div>
-            </template>
-          </form>
-        </nav>
-      </div>
-
-      {{!-- Header user avt+dropdown --}}
-      <div class="col-md-3 col-lg-2 col-xl-2 col-user">
-        <div class="col-smlapse navbar-col-smlapse" id="navbarNavDarkDropdown">
-          <ul class="navbar-nav">
-            <li class="nav-item dropdown">
-
-              {{#if user}}
-              <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="{{user.img}}" alt="avatar" class="user-avatar" loading="eager" fetchpriority="high"
-                  width="30px" height="30px">
-                <span id="user-name">{{user.fullName}}</span>
-              </button>
-
-              {{#if (eq user.role 'user')}}
-              <ul class="dropdown-menu dropdown-menu-custom">
-                <li><a class="dropdown-item" href="/">Trang chủ</a></li>
-                <li><a class="dropdown-item" href="/users/me/profile">Hồ sơ của bạn</a></li>
-                <li><a class="dropdown-item" href="#" type="button" data-bs-toggle="modal"
-                    data-bs-target="#uploadModal">Thay đổi ảnh đại diện</a></li>
-                <div class="dropdown-divider"></div>
-                <li><a id="logout" class="dropdown-item" href="#">Đăng xuất</a></li>
-              </ul>
-              {{/if}}
-
-              {{#if (eq user.role 'admin')}}
-              <ul class="dropdown-menu dropdown-menu-custom">
-                <li><a class="dropdown-item" href="/">Trang chủ</a></li>
-                <li><a class="dropdown-item" href="/users/me/profile">Hồ sơ của bạn</a></li>
-                <li><a class="dropdown-item" href="#" type="button" data-bs-toggle="modal"
-                    data-bs-target="#uploadModal">Thay đổi ảnh đại diện</a></li>
-                <div class="dropdown-divider"></div>
-                <li><a class="dropdown-item" href="/movies/create">Đăng phim mới</a></li>
-                <li><a class="dropdown-item" href="/me/stored/movies">Phim của tôi</a></li>
-                <div class="dropdown-divider"></div>
-                <li><a id="logout" class="dropdown-item" href="#">Đăng xuất</a></li>
-              </ul>
-              {{/if}}
-
-              {{else}}
-              <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-                <img src="/uploads/avt.avif" alt="avatar" class="user-avatar" loading="eager" fetchpriority="high"
-                  width="30px" height="30px">
-                <span id="user-name">Chào mừng bạn</span>
-              </button>
-              <ul class="dropdown-menu dropdown-menu-dark">
-                <li><a class="dropdown-item" href="/users/register">Đăng ký</a></li>
-                <li><a class="dropdown-item" href="/users/login">Đăng nhập</a></li>
-              </ul>
-              {{/if}}
-
-            </li>
-          </ul>
-        </div>
-      </div>
-
+    {{!-- Header logo img --}}
+    <div class="col-md-4 col-lg-3 col-xl-2 col-logo-img">
+      <a href="/"><img src="\img\bAfQCn.png" alt="logo"></a>
     </div>
-    {{!--
-  </nav> --}}
+
+    {{!-- Header search --}}
+    <div class="col-md-3 col-lg-6 col-xl-7 col-search">
+      <nav class="navbar-dark nav-dark-search" data-bs-theme="dark">
+        <form class="searchInputForm" role="search">
+          <input id="searchInput" type="text" class="form-control" placeholder="Tìm kiếm phim....">
+          <div id="suggestionBox"></div>
+          <template id="suggestion-template">
+            <div class="suggestion-item gap-5">
+              <img class="suggestion-img img-fluid" src="" alt="">
+              <div class="suggestion-des">
+                <span class="suggestion-name"></span>
+                <small class="suggestion-schedule text-muted fst-italic d-block"></small>
+              </div>
+            </div>
+          </template>
+        </form>
+      </nav>
+    </div>
+
+    {{!-- Header user avt+dropdown --}}
+    <div class="col-md-3 col-lg-2 col-xl-2 col-user">
+      <div class="col-smlapse navbar-col-smlapse" id="navbarNavDarkDropdown">
+        <ul class="navbar-nav">
+          <li class="nav-item dropdown">
+
+            {{#if user}}
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="{{user.img}}" alt="avatar" class="user-avatar" loading="eager" fetchpriority="high" width="30px"
+                height="30px">
+              <span id="user-name">{{user.fullName}}</span>
+            </button>
+
+            {{#if (eq user.role 'user')}}
+            <ul class="dropdown-menu dropdown-menu-custom">
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="/"><i class="bi bi-house-heart"></i> Trang
+                  chủ</a></li>
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="/users/me/profile"><i
+                    class="bi bi-person-hearts"></i> Hồ sơ của bạn</a></li>
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="#" type="button" data-bs-toggle="modal"
+                  data-bs-target="#uploadModal"><i class="bi bi-images"></i> Thay đổi ảnh đại diện</a></li>
+              <div class="dropdown-divider"></div>
+              <li class="li-toggle-dropdown"><a id="logout" class="dropdown-item" href="#"><i
+                    class="bi bi-box-arrow-right"></i> Đăng xuất</a></li>
+            </ul>
+            {{/if}}
+
+            {{#if (eq user.role 'admin')}}
+            <ul class="dropdown-menu dropdown-menu-custom">
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="/"><i class="bi bi-house-heart"></i>
+                  Trang chủ</a></li>
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="/users/me/profile"><i
+                    class="bi bi-person-hearts"></i> Hồ sơ của bạn</a></li>
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="#" type="button" data-bs-toggle="modal"
+                  data-bs-target="#uploadModal"><i class="bi bi-images"></i> Thay đổi ảnh đại diện</a></li>
+              <div class="dropdown-divider"></div>
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="/movies/create">Đăng phim mới</a></li>
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="/me/stored/movies">Phim của tôi</a></li>
+              <div class="dropdown-divider"></div>
+              <li class="li-toggle-dropdown"><a id="logout" class="dropdown-item" href="#"><i
+                    class="bi bi-box-arrow-right"></i> Đăng xuất</a></li>
+            </ul>
+            {{/if}}
+
+            {{else}}
+            <button class="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+              <img src="/uploads/avt.avif" alt="avatar" class="user-avatar" loading="eager" fetchpriority="high"
+                width="30px" height="30px">
+              <span id="user-name">Chào mừng bạn</span>
+            </button>
+            <ul class="dropdown-menu dropdown-menu-dark">
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="/users/login"><i
+                    class="bi bi-person-lock"></i> Đăng nhập</a></li>
+              <li class="li-toggle-dropdown"><a class="dropdown-item" href="/users/register"><i
+                    class="bi bi-box-arrow-in-left"></i> Đăng ký</a></li>
+            </ul>
+            {{/if}}
+
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
 
   <!-- Modal Upload Ảnh -->
-  <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" >
-  {{!-- aria-hidden="true" style="display: none;" inert --}}
+  <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel">
+    {{!-- aria-hidden="true" style="display: none;" inert --}}
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">

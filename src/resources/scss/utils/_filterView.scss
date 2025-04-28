@@ -1,0 +1,116 @@
+.container-filter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+}
+
+.col-filter-title {
+  padding: 20px;
+  border-radius: 20px;
+}
+.col-filter-title > h3 {
+  font-weight: 800;
+  margin: 0;
+}
+/////////////////////////////////////////////////
+.row-filter-select {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(151px, 1fr));
+  justify-items: center;
+  align-items: center;
+  padding: inherit;
+  gap: 10px;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.row-filter-select > a {
+  width: 100%;
+  max-height: 34px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  padding: 10px;
+  text-decoration: none;
+  color: white;
+  background: black;
+  border-radius: 20px;
+}
+
+.row-filter-select a:hover {
+  border: 2px solid rgb(0, 252, 247);
+  box-shadow: 0 5px 10px rgba(8, 240, 252, 0.491);
+}
+///////////////////////////////////
+.row-filter-list-movies {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(200px, 1fr));
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.col-filter-movie {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  max-height: 140px;
+  padding: 15px;
+  margin: 15px;
+  gap: 10px;
+  overflow: hidden;
+  border-radius: 20px;
+  background-image: linear-gradient(
+    to right,
+    #000000,
+    #000000,
+    #000000,
+    #29778274,
+    #000000,
+    #f24545c0
+  );
+  box-shadow: 0 5px 15px 0 rgba(126, 52, 161, 0.75);
+  background-size: 300% 100%;
+  transition: all 0.4s ease-in-out;
+}
+.col-filter-movie img {
+  width: clamp(65px, 22vw, 75px);
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.name-filter-movie {
+  font-size: 20px;
+  font-weight: 800;
+}
+.category-filter-movie {
+  font-size: 15px;
+  font-style: italic;
+  font-weight: 500;
+}
+
+///////////////////////////////////////
+.col-filter-movie:hover,
+.col-filter-movie:hover img {
+  background-position: 100% 0;
+  transform: translateY(-2px);
+  border: 1px solid #ff3e6f;
+  cursor: pointer;
+}
+
+///////////////////////////////////
+@media (max-width: 1023px) {
+  .row-filter-list-movies {
+    grid-template-columns: repeat(2, minmax(200px, 1fr));
+  }
+}
+@media (max-width: 767px) {
+  .row-filter-list-movies {
+    grid-template-columns: repeat(1, minmax(200px, 1fr));
+  }
+}

@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
-
+    // handle scroll-container - view home
     const slider = document.querySelector('.scroll-container')
     let isDown = false, isDragging = false, startX, scrollLeft
 

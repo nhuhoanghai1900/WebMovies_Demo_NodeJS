@@ -11,44 +11,6 @@
   gap: 20px;
 }
 
-.row-weekly {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.row-col-weekly {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 52, 44, 0.889);
-  margin: 2px;
-  padding: 4px;
-  border-radius: 4px;
-}
-
-.row-col-weekly > a {
-  text-decoration: none;
-  font-weight: 900;
-  color: #ffffff;
-  -webkit-user-drag: none;
-}
-
-.row-col-weekly > p {
-  margin: 0;
-  font-size: 12px;
-  font-style: italic;
-}
-
-.row-col-weekly:hover,
-.row-col-weekly:hover > a {
-  background-color: rgb(255, 255, 255);
-  color: black;
-  cursor: pointer;
-  user-select: none;
-}
-
 .row-list {
   display: grid;
   grid-template-columns: repeat(5, minmax(175px, 210px));
@@ -63,25 +25,6 @@
   width: 100%;
   margin: 0 auto;
   height: auto;
-}
-
-.section-dropdown {
-  position: relative;
-  display: none;
-  width: 100%;
-  margin: 0 auto 20px;
-  padding: 10px;
-  text-align: center;
-  gap: 12px;
-}
-.section-dropdown-item {
-  width: 100%;
-  padding: 5px;
-}
-.section-dropdown-item > a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
 }
 
 ///////////////////////////////////////
@@ -136,14 +79,8 @@
   .row-weekly {
     display: none;
   }
-  .section-dropdown {
-    display: flex;
-  }
 
   @media (hover: hover) and (pointer: fine) {
-    .section-dropdown-item:hover .dropdown-content {
-      display: grid;
-    }
     // lớp giả cho .dropdown-content -> tránh mất hover khi di chuột xuống khoảng trống nằm giữa
     .dropdown-content::after {
       position: absolute;

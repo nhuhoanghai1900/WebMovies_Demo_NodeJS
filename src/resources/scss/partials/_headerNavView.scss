@@ -48,12 +48,31 @@
   font-style: normal;
 }
 
+.header__nav-item:hover a {
+  color: #ffc107;
+}
+
 .header__nav-link {
   text-decoration: none;
   color: white;
   font-size: 16px;
 }
+////////////////////////////////////////////////////////////////////////
+/// hiệu ứng thẻ li dropdown header nav
+.li-toggle-dropdown {
+  transition: color 0.3s ease, transform 0.3s ease;
+}
 
+.li-toggle-dropdown:hover a {
+  color: #00f7ff;
+}
+
+// nút dark mode
+.bi-brightness-high {
+  display: none;
+}
+
+//////////////////////////////////////////////////////////////
 @media (max-width: 767px) {
   .container__header-nav {
     display: none;

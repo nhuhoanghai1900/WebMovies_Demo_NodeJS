@@ -1,0 +1,29 @@
+<div class="container container-filter">
+    <div class="col-filter-title bg-dark">
+        <h3><i class="bi bi-film"></i> LỊCH CHIẾU TIÊN VỰC 3D</h3>
+    </div>
+
+    <div class="row-filter-select bg-dark">
+        <a href="/filter/schedule/?selectedDay=Thứ Hai">Thứ hai </a>
+        <a href="/filter/schedule/?selectedDay=Thứ Ba">Thứ ba </a>
+        <a href="/filter/schedule/?selectedDay=Thứ Tư">Thứ tư </a>
+        <a href="/filter/schedule/?selectedDay=Thứ Năm">Thứ năm </a>
+        <a href="/filter/schedule/?selectedDay=Thứ Sáu">Thứ sáu </a>
+        <a href="/filter/schedule/?selectedDay=Thứ Bảy">Thứ bảy </a>
+        <a href="/filter/schedule/?selectedDay=Chủ nhật">Chủ nhật </a>
+    </div>
+
+    <div class="row-filter-list-movies bg-dark">
+        {{#each movies}}
+        <a class="text-white text-decoration-none" href="/movies/{{this.slug}}/details">
+            <div class="col-filter-movie">
+                <img src="{{this.img}}" alt="">
+                <div>
+                    <p class="name-filter-movie">{{this.name}}</p>
+                    <small class="category-filter-movie"><i class="bi bi-badge-3d-fill"></i> {{this.language}}</small>
+                </div>
+            </div>
+        </a>
+        {{/each}}
+    </div>
+</div>
