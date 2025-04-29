@@ -21,7 +21,7 @@ route.get("/me/profile", checkToken, usersController.meProfile)
 route.get("/me/favorite", checkToken, usersController.mefavorite)
 
 route.get("/auth/check", checkTokenIfExists, (req, res) => {
-    if (!req.user) return
+    !req.user ? res.end() : res.status(200).json("message: Check success User (continute)")
 })
 
 export default route

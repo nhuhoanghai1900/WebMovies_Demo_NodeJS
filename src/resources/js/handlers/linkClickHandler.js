@@ -79,6 +79,8 @@ document.addEventListener("DOMContentLoaded", () => {
           route = showAll
             ? (route = `/filter/category/?language=${language}&showAll=${showAll}`)
             : (route = `/filter/category/?language=${language}`)
+        } else if (link.href.includes("/users/me/profile")) {
+          route = `/users/me/profile/?showAll=${showAll}`
         } else if (link.href.includes("/")) {
           route = `/?selectedDay=${selectedDay}`
         }

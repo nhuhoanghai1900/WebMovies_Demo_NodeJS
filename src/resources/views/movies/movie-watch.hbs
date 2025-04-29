@@ -1,21 +1,19 @@
-<div class="container container-movie-details">
-    <div class="row-movie-yt">
+<div class="container-movie-details">
+    <div class="row-movie-yt ">
         <iframe src="{{episode.videoUrl}}?modestbranding=1&showinfo=0" allowfullscreen></iframe>
 
         <div class="movie-details-title--1">
-            <i class="bi bi-film"></i>
-            <h4 class="m-0">[{{movies.language}}] - {{movies.name}} -- Tập {{episode.epNumber}}</h4>
+            <h5 class="m-0"><i class="bi bi-film"></i> [{{movies.language}}] - {{movies.name}} -- Tập
+                {{episode.epNumber}}</h5>
         </div>
-
         <div class="movie-details-title--2">
-            <i class="bi bi-calendar-check"></i>
-            <h5 class="m-0">{{movies.schedule}}</h5>
+            <small class="m-0"><i class="bi bi-calendar-check"></i> {{movies.schedule}}</small>
         </div>
+        <a class="btn w-100 mx-auto mt-3">DANH SÁCH XEM PHIM<a></a>
     </div>
 
     <!-- Row cho danh sách nút tập phim -->
-    <div class="row-list-movie">
-        <h5>Danh sách tập phim:</h5>
+    <div class="row-list-movie bg-dark">
         <div class="col-list-movie">
             {{#each movies.episodes}}
             <a href="/movies/{{../movies.slug}}/watch/{{epNumber}}" class="btn btn-movie-episodeId m-1 checkTokenMovies"

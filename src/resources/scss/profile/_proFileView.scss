@@ -66,52 +66,12 @@
 }
 
 .media-user {
-  background-color: #ffffff;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   padding: 24px;
 }
-
-.media-favorite {
-  margin: 0;
-  font-size: 20px;
-  font-weight: 900;
-  background: #ffffff;
-}
-
-// Start -------------------- list-favorites
-.row-list-favorites {
-  width: 100%;
-  max-height: 400px;
-  margin: 0 auto 5px;
-  padding: 50px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
-  justify-content: center;
-  align-items: center;
-  gap: 50px;
-  overflow: auto;
-  background: linear-gradient(
-    207deg,
-    rgba(36, 0, 34, 1) 0%,
-    rgba(118, 9, 121, 1) 30%,
-    rgba(255, 136, 0, 1) 70%
-  );
-}
-.row-list-favorites::-webkit-scrollbar {
-  width: 4px; /* Ẩn thanh cuộn dọc */
-  background-color: darkcyan;
-}
-.row-list-favorites::-webkit-scrollbar-track {
-  background-color: transparent; /* Màu nền của track (vùng chứa thanh cuộn) */
-}
-.row-list-favorites::-webkit-scrollbar-thumb {
-  background-color: rgb(0, 255, 255); /* Màu của thanh cuộn dọc */
-  border-radius: 10px; /* Bo tròn góc của thanh cuộn */
-}
-// End -------------------- list-favorites
 
 @media (max-width: 425px) {
   .media-user > * {

@@ -71,12 +71,12 @@ export default {
         ],
     },
 
-    resolve: {
-        fallback: {
-            "console": false,
-        },
-    },
-    
+    // resolve: {
+    //     fallback: {
+    //         "console": false,
+    //     },
+    // },
+
     cache: {
         type: 'filesystem',
     },

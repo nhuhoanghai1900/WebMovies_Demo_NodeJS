@@ -1,9 +1,11 @@
 // Start ----------------- Movie-Details ----------------------------------
 .container-movie-details {
+  max-width: 1350px;
   width: 100%;
-  margin: 0 auto 8px;
+  margin: 0 auto;
   overflow: auto;
-  padding: 0;
+  padding: 0 30px;
+  box-sizing: border-box;
 }
 
 .movie-details {
@@ -52,33 +54,32 @@
 
 // Start ----------------- Movie-Details -> watch episodes ----------------------------------
 .row-movie-yt {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  width: 100%;
-  height: auto;
+  display: grid;
   padding: 20px;
   gap: 20px;
   background: #181f26;
 }
 .row-movie-yt iframe {
   aspect-ratio: 16/9;
-  width: 65%;
+  width: 100%;
   margin: 0 auto;
 }
 
 .movie-details-title--1 {
   display: flex;
   align-items: center;
-  font-weight: 900;
-  background-color: #181f26;
 }
 
 .movie-details-title--2 {
   display: flex;
   align-items: center;
   font-style: italic;
-  background-color: #181f26;
+}
+
+@media (max-width: 767px) {
+  .movie-details-title--1 h5 {
+    font-size: 14px;
+  }
 }
 // End ----------------- Movie-Details -> watch episodes ----------------------------------
 
@@ -86,9 +87,9 @@
 .row-list-movie {
   width: 100%;
   margin: 0 auto;
-  padding: 20px;
   max-height: 460px;
-  overflow: auto;
+  overflow-y: auto;
+  scrollbar-width: none;
 }
 
 .col-list-movie {
@@ -97,10 +98,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
   justify-content: center;
-  padding: 15px;
-  gap: 5px;
+  gap: 4px;
   border-radius: 10px;
-  background-color: rgba(119, 119, 119, 0.55);
 }
 // End ----------------- Movie-Details --> list episodes ----------------------------------
 

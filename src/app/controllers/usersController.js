@@ -125,12 +125,17 @@ class UsersController {
     const roleLabel = user.role === "admin" ? "Bang chủ Admin" : "Thành viên"
     const createdDate = new Date(user.createdAt).toLocaleDateString("vi-VN")
 
-    //get user data
-    const movie = await Movies.find({ _id: { $in: user.favorites } }).select('_id slug name img').lean()
+    //get movie data
+    let { showAll } = req.query
+    console.log(showAll);
+    showAll = showAll === 'true'
+    const limit = showAll ? 0 : 2
+    const movies = await Movies.find({ _id: { $in: user.favorites } }).select('_id slug name img').lean().limit(limit)
 
     res.render("users/profile.hbs", {
       user,
-      movie,
+      movies,
+      showAll,
       roleLabel,
       createdDate,
     })
