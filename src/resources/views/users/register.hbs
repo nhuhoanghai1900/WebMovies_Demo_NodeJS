@@ -1,25 +1,25 @@
-<div class="container m-5 mx-auto">
+<div class="container m-2 mx-auto">
     <div class="row justify-content-center">
-        <div class="col-12 col-md-6 p-5 col-login-register">
-            <h2 class="text-center">Tạo tài khoản mới</h2>
+        <div class="col-11 col-md-6 p-4 col-login-register">
+            <h2 class="text-center" style="font-weight: 900; color: #ffaa00;">Đăng Ký</h2>
             <form id="register-form" action="/users/register" method="POST">
                 <!-- Name -->
                 <div class="mb-3">
-                    <label for="fullName" class="form-label">Họ tên</label>
+                    <label for="fullName" class="form-label" style="font-weight: 900">Họ tên</label>
                     <input type="text" class="form-control" id="fullName" name="fullName" autofocus
-                        placeholder="VD: Nhữ Hoàng Hải" minlength="6" required />
+                        placeholder="Nhữ Hoàng Hải" minlength="6" required />
                 </div>
                 <!-- Email -->
                 <div class="mb-3">
-                    <label for="email" class="form-label">Email</label>
+                    <label for="email" class="form-label" style="font-weight: 900">Email</label>
                     <input type="email" id="email" name="email" class="form-control" autocomplete="new-email"
-                        placeholder="VD: nhuhoanghai@gmail.com" required />
+                        placeholder="nhuhoanghai@gmail.com" required />
                     <small id="email-error" class="text-danger"></small>
                 </div>
                 <!-- Password -->
                 <div class="mb-3 gap-3">
-                    <label for="password" class="form-label">Mật khẩu</label>
-                    <div class="input-group">
+                    <label for="password" class="form-label" style="font-weight: 900">Mật khẩu</label>
+                    <div class="input-group mb-2">
                         <input type="password" class="form-control" id="password" name="password"
                             autocomplete="new-password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,12}$" required />
                         <button class="btn btn-outline-secondary" type="button" id="togglePassword" tabindex="-1">
@@ -31,8 +31,8 @@
 
                 <!-- Confirm Password -->
                 <div class="mb-3">
-                    <label for="confirmPassword" class="form-label">Nhập lại mật khẩu</label>
-                    <div class="input-group">
+                    <label for="confirmPassword" class="form-label" style="font-weight: 900">Nhập lại mật khẩu</label>
+                    <div class="input-group mb-2">
                         <input type="password" class="form-control" id="confirmPassword" name="confirmPassword"
                             autocomplete="new-password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{6,12}$" required />
                         <button class="btn btn-outline-secondary" type="button" id="togglePasswordConfirm"
