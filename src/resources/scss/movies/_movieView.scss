@@ -4,7 +4,6 @@
   margin: 0 auto 8px;
   overflow: auto;
   padding: 0;
-  background: linear-gradient(to left, #b92b27, #321575);
 }
 
 .movie-details {
@@ -106,7 +105,7 @@
 // End ----------------- Movie-Details --> list episodes ----------------------------------
 
 .active-favorite {
-  background: #b92b27;
+  background: #d4706c !important;
   border-radius: 5px;
   padding: 5px;
   margin: 2px;

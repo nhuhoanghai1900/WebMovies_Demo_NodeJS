@@ -76,10 +76,11 @@ export default {
             "console": false,
         },
     },
+    
     cache: {
         type: 'filesystem',
     },
     stats: 'minimal',
     mode: "production", // "production or development"
-    // devtool: false,
+    devtool: false,
 }

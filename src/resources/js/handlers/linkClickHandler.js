@@ -97,6 +97,7 @@ document.addEventListener("DOMContentLoaded", () => {
           // Lấy phần tử chứa danh sách phim trong HTML trả về
           const listSelect = doc.querySelector(".row-filter-select")
           const listMovies = doc.querySelector(".row-filter-list-movies")
+          const listMoviesHome = doc.querySelector(".row-list")
 
           // Nếu tìm thấy phần tử thì cập nhật DOM
           if (listMovies) {
@@ -105,7 +106,6 @@ document.addEventListener("DOMContentLoaded", () => {
             document.querySelector(".row-filter-list-movies").innerHTML =
               listMovies.innerHTML
           }
-          const listMoviesHome = doc.querySelector(".row-list")
           if (listMoviesHome) {
             document.querySelector(".row-list").innerHTML =
               listMoviesHome.innerHTML
@@ -115,4 +115,31 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     })
+  const dropdownCenter = document.querySelector(".dropdown-center")
+  if (dropdownCenter) {
+    dropdownCenter.addEventListener("click", async (e) => {
+      const link = e.target.closest("a")
+      if (link) {
+        e.preventDefault()
+        const url = new URL(link.href)
+        const selectedDay = url.searchParams.get("selectedDay")
+        try {
+          const res = await fetch(`/?selectedDay=${selectedDay}`)
+          if (res.ok) {
+            const data = await res.text()
+            // Phân tích dữ liệu HTML trả về
+            const parser = new DOMParser()
+            const doc = parser.parseFromString(data, "text/html")
+            const listMoviesHome = doc.querySelector(".row-list")
+            if (listMoviesHome) {
+              document.querySelector(".row-list").innerHTML =
+                listMoviesHome.innerHTML
+            }
+          }
+        } catch (error) {
+          console.error("Lỗi fetch dữ liệu:", error)
+        }
+      }
+    })
+  }
 })

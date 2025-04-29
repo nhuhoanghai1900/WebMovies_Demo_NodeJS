@@ -137,8 +137,12 @@ class UsersController {
   }
 
   async mefavorite(req, res) {
-    const user = await Users.findById(req.user._id).select("-_id favorites ")
-    res.json(user)
+    try {
+      const user = await Users.findById(req.user._id).select("-_id favorites ")
+      res.json(user)
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
 export default new UsersController()

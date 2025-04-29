@@ -11,17 +11,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         // xử lý sự kiện add favorite
         favoriteItem.addEventListener('click', async (e) => {
             e.preventDefault()
+            console.log(e.currentTarget.href);
+
             const res = await fetch(e.currentTarget.href, {
-                method: 'POST', // hoặc 'GET' tùy server
+                method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 }
             })
-
             const data = await res.json()
             if (!res.ok) {
-                console.log(data.message);
-
                 showToastDanger('Bạn phải đăng nhập')
             } else {
                 showToast(data.message2)
@@ -30,29 +29,41 @@ document.addEventListener('DOMContentLoaded', async () => {
 
                 if (data.favorites.includes(movieId)) {
                     favoriteItemItem.classList.add('active-favorite')
+                    favoriteItem.classList.add('active-favorite')
                     textActiveFav.textContent = 'Đã theo dõi'
                 } else {
                     favoriteItemItem.classList.remove('active-favorite')
+                    favoriteItem.classList.remove('active-favorite')
                     textActiveFav.textContent = 'Theo dõi'
                 }
             }
         })
 
+        // check user === true => next()
+        const check = await fetch('/users/auth/check', {
+            method: 'GET',
+        })
+        if (!check.ok) {
+            return
+        }
+
         // gọi lại dữ liệu người dùng lưu nút favorite UI
-        const res = await fetch('/users/me/favorite', {
+        const response = await fetch('/users/me/favorite', {
             method: 'GET',
             headers: {
                 'Content-Type': 'application/json',
-            }
+            },
         })
-        const data = await res.json()
+        const data = await response.json()
         favoriteItemAll.forEach(fv => {
             const movieId = String(fv.dataset.id)
             if (String(data.favorites).includes(movieId)) {
                 fv.classList.add('active-favorite')
+                favoriteItem.classList.add('active-favorite')
                 textActiveFav.textContent = 'Đã theo dõi'
             } else {
                 fv.classList.remove('active-favorite')
+                favoriteItem.classList.remove('active-favorite')
                 textActiveFav.textContent = 'Theo dõi'
             }
         })

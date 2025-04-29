@@ -4,7 +4,7 @@ import registerValidate from '../app/middleware/registerValidate.js'
 import loginValidate from '../app/middleware/loginValidate.js'
 import checkToken from '../app/middleware/checkToken.js'
 import handleUpload from '../app/middleware/uploadMiddleware.js'
-
+import checkTokenIfExists from '../app/middleware/checkTokenIfExists.js'
 const route = express.Router()
 
 route.get("/register", usersController.showRegisterForm)
@@ -19,5 +19,9 @@ route.post('/upload-avatar', checkToken, handleUpload("uploads"), usersControlle
 
 route.get("/me/profile", checkToken, usersController.meProfile)
 route.get("/me/favorite", checkToken, usersController.mefavorite)
+
+route.get("/auth/check", checkTokenIfExists, (req, res) => {
+    if (!req.user) return
+})
 
 export default route
