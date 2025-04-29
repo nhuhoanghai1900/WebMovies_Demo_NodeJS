@@ -29,16 +29,32 @@ Giao diện đơn giản, dễ dùng, hỗ trợ các tính năng cơ bản đ�
 
 ## ⚙️ Chức năng chính
 
-- Đăng nhập / Đăng ký người dùng
-- Tìm kiếm phim theo tên
-- Xem danh sách phim
-- Xem chi tiết phim và mô tả
-- Xem phim bằng iframe (YouTube)
-- Upload ảnh đại diện người dùng
-- Thêm phim yêu thích
-- Hồ sơ cá nhân (profile)
-- Quản lý phim (thêm / xoá mềm)
-- Lọc phim theo thể loại, trạng thái và lịch chiếu
+### 👤 Người dùng
+
+- Đăng ký / Đăng nhập bảo mật (sử dụng `bcrypt` và `jsonwebtoken`)
+- Xác thực phiên hoạt động bằng (sử dụng 'token JWT')
+- Xem và chỉnh sửa **hồ sơ cá nhân** (profile)
+- Upload ảnh đại diện bằng **FilePond + Multer**
+
+### 🎬 Phim
+
+- Xem **danh sách phim** theo nhiều tiêu chí
+- Xem chi tiết phim: tiêu đề, mô tả, thể loại, iframe YouTube, danh sách tập
+- Lọc phim theo: thể loại, trạng thái (đang chiếu / hoàn thành), lịch chiếu
+- Tìm kiếm phim theo tên, hỗ trợ tìm nhanh
+
+### 🛠️ Quản trị & quản lý nội dung
+
+- Chức năng **thêm, sửa, xóa, xoá mềm** phim (sử dụng `mongoose-delete`)
+- Kiểm soát nội dung phim: link nhúng, slug tự động (sử dụng `slugify`)
+- Middleware chống spam (sử dụng `express-rate-limit`)
+- Valid dữ liệu gửi lên (sử dụng `express-validator`)
+
+### 💡 Trải nghiệm & hiệu năng
+
+- Nén nội dung truyền tải bằng `compression`
+- Caching thông minh (`http-cache-semantics`, `got`, `Cache-Control`)
+- Tối ưu hóa mã nguồn JS/CSS bằng **Webpack**
 
 ### ⚙️ Build tool & Dev tool
 
@@ -49,14 +65,10 @@ Giao diện đơn giản, dễ dùng, hỗ trợ các tính năng cơ bản đ�
 
 ## 🌐 Truy cập bản demo
 
-Dự án đã được deploy tại:  
-**https://node-tienvuc3d.onrender.com**
-
-# Clone repo
-
-git clone **https://github.com/nhuhoanghai1900/WebMovies_Demo_NodeJS**
+Dự án đã được deploy tại: **https://node-tienvuc3d.onrender.com**
+github: **https://github.com/nhuhoanghai1900/WebMovies_Demo_NodeJS**
 
 🚀 Chạy dự án
-
 npm install
 npm run start:dev
+npm run build:prod
