@@ -1,65 +1,62 @@
 # 🎮 Movie Web Demo
 
-Trang web demo xem phim đơn giản, dùng Node.js + Express, lưu phim và tập phim vào MongoDB. Giao diện render bằng Handlebars.
+**Website xem phim miễn phí cho người dùng trên mọi thiết bị.**  
+Giao diện đơn giản, dễ dùng, hỗ trợ các tính năng cơ bản đến nâng cao phục vụ trải nghiệm xem phim trực tuyến.
 
----
+## 🚀 Công nghệ sử dụng
 
-## 📁 Cấu trúc thư mục
+### 🖼️ Frontend
 
-```
-src/
-├── datatest.json              # Dữ liệu mẫu
-├── index.js                   # Điểm vào ứng dụng
+- **HTML, CSS, SCSS** – Giao diện responsive, dễ bảo trì
+- **JavaScript (ES6+)** – Tương tác động, fetch API, xử lý logic phía client
+- **Handlebars (express-handlebars)** – Template engine để render HTML động
+- **FilePond** Upload ảnh giao diện đẹp, hỗ trợ preview
 
-├── app/
-│   ├── controllers/           # Controllers xử lý route
-│   └── models/                # Schema mongoose
+### 🧠 Backend
 
-├── config/
-│   └── db/                    # Kết nối MongoDB
+- **Node.js + Express** – Xây dựng RESTful API
+- **Multer** – Middleware xử lý upload ảnh
+- **jsonwebtoken** – Tạo và xác thực token đăng nhập
+- **Mongoose** – ORM làm việc với MongoDB
+- **Mongoose-delete** – Hỗ trợ xoá mềm (soft delete)
+- **express-validator** – Kiểm tra và validate dữ liệu đầu vào
+- **express-rate-limit** – Giới hạn request, chống spam
+- **cookie-parser, compression, method-override** – Các middleware hỗ trợ
 
-├── public/                    # Tài nguyên tĩnh
-│   ├── css/
-│   └── img/
+### 🛢️ Database
 
-├── resources/
-│   ├── scss/                  # SCSS tuỳ biến
-│   └── views/                 # Giao diện (Handlebars)
+- **MongoDB** – Lưu trữ phim, người dùng, trạng thái...
 
-├── routes/                    # Định tuyến
-└── util/                      # Hàm tiện ích (mongoose helper)
-```
+## ⚙️ Chức năng chính
 
----
+- Đăng nhập / Đăng ký người dùng
+- Tìm kiếm phim theo tên
+- Xem danh sách phim
+- Xem chi tiết phim và mô tả
+- Xem phim bằng iframe (YouTube)
+- Upload ảnh đại diện người dùng
+- Thêm phim yêu thích
+- Hồ sơ cá nhân (profile)
+- Quản lý phim (thêm / xoá mềm)
+- Lọc phim theo thể loại, trạng thái và lịch chiếu
 
-## 🚀 Chạy dự án
+### ⚙️ Build tool & Dev tool
 
-```bash
+- **Webpack** – Biên dịch SCSS, tối ưu JS/CSS, hỗ trợ cache, minify, tách file
+- **Terser & CSS Minimizer** – Nén mã JS/CSS
+- **Concurrently** – Chạy song song nhiều script trong quá trình phát triển
+- **Dotenv** – Quản lý biến môi trường bảo mật
+
+## 🌐 Truy cập bản demo
+
+Dự án đã được deploy tại:  
+**https://node-tienvuc3d.onrender.com**
+
+# Clone repo
+
+git clone **https://github.com/nhuhoanghai1900/WebMovies_Demo_NodeJS**
+
+🚀 Chạy dự án
+
 npm install
-npm start
-```
-
----
-
-## 🔧 Công nghệ sử dụng
-
-- Node.js
-- Express.js
-- Express-Handlebars
-- MongoDB + Mongoose
-- Webpack (biên dịch SCSS + tạo CSS, nén JS + CSS, contenthash cache)
-- Nodemon (dev tool)
-
----
-
-## 🧠 Chức năng chính
-
-- Thêm/sửa/xoá/xóa mềm/khôi phục --> phim
-- Thêm/sửa/xoá --> tập phim
-- Xem chi tiết phim
-- Xem và phát video (dùng iframe YouTube)
-- Giao diện phân quyền (me/stored, trash…)
-
----
-
-"watch": "sass --watch src/resources/scss/app.scss src/public/css/app.css",
+npm run start:dev
