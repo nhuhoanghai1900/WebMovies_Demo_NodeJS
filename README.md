@@ -3,6 +3,10 @@
 **Website xem phim miễn phí cho người dùng trên mọi thiết bị.**  
 Giao diện đơn giản, dễ dùng, hỗ trợ các tính năng cơ bản đến nâng cao phục vụ trải nghiệm xem phim trực tuyến.
 
+# Account (user): 
+**nhuhoanghai01@gmail.com**
+**Admin321**
+
 ## 🚀 Công nghệ sử dụng
 
 ### 🖼️ Frontend
